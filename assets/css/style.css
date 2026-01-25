@@ -30,7 +30,6 @@ body {
 }
 
 .hero-overlay{
-  /* 上浅下深：更像“学术项目官网”，不商业 */
   background: linear-gradient(
     180deg,
     rgba(163, 43, 34,0.35) 0%,
@@ -200,7 +199,6 @@ body {
   background: rgba(255,255,255,0.12);
 }
 
-/* 第三按钮：GitHub（最低优先级，学术克制） */
 .btn-ghost{
   background: transparent;
   color: rgba(255,255,255,0.85);
@@ -241,7 +239,6 @@ body {
     min-height: 300px;
     max-height: 420px;
 
-    /* 手机端裁剪更偏向下半部分（城市主体） */
     background-position: center 80%;
   }
 
@@ -313,35 +310,30 @@ body {
 /* ================================ */
 
 .hero-overlay{
-  /* 关键：不要用 100% 高度去依赖父容器 */
   height: auto;
   box-sizing: border-box;
 
-  /* 关键：你原来只有 align-items，没有 display:flex */
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* 让 Hero 自洽，避免内容把下一段“压住” */
 .hero{
   overflow: hidden;
 }
 
-/* 手机端：给 Hero 一个稳定的最小高度 + 合理内边距 */
 @media (max-width: 768px){
 
   .hero{
-    min-height: 360px;           /* 给 Safari 一个稳定计算基础 */
+    min-height: 360px;           
     background-position: center 80%;
   }
 
   .hero-overlay{
-    padding: 56px 16px 36px;     /* 底部加一点 padding，避免按钮贴到下一段 */
-    gap: 14px;                   /* 让标题、段落、按钮之间有自然间距 */
+    padding: 56px 16px 36px;     
+    gap: 14px;                   
   }
 
-  /* 防止 iOS 字体自动放大导致布局挤压 */
   .hero h1{
     font-size: 1.65rem;
     line-height: 1.25;
@@ -358,10 +350,10 @@ body {
     margin-top: 10px;
   }
 
-  /* 确保下一段永远在 Hero 之后正常排版（防 Safari stacking bug） */
   .section{
     position: relative;
     z-index: 1;
     background: #fff;
   }
 }
+
