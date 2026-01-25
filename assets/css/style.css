@@ -393,6 +393,45 @@ body {
   }
 }
 
+/* ================================ */
+/* Mobile navbar consistency fix    */
+/* ================================ */
+@media (max-width: 768px){
 
+  
+  .nav-right{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  
+  .lang-menu{
+    margin-left: auto;
+  }
+
+  
+  .lang-btn{
+    white-space: nowrap;
+  }
+}
+
+/* ================================ */
+/* Mobile hero buttons uniform size */
+/* ================================ */
+@media (max-width: 768px){
+
+  .hero-actions{
+    width: 100%;
+  }
+
+  .hero-actions .btn{
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
 
 
