@@ -39,7 +39,6 @@ body {
   );
 
   color: #FFF;
-  height: 100%;
   padding: 72px 24px;
   align-items: center;
 }
@@ -306,5 +305,63 @@ body {
   .footer{
     padding: 1.5rem 1rem;
     font-size: 0.85rem;
+  }
+}
+
+/* ================================ */
+/* iOS Safari / Mobile overlap fix  */
+/* ================================ */
+
+.hero-overlay{
+  /* 关键：不要用 100% 高度去依赖父容器 */
+  height: auto;
+  box-sizing: border-box;
+
+  /* 关键：你原来只有 align-items，没有 display:flex */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 让 Hero 自洽，避免内容把下一段“压住” */
+.hero{
+  overflow: hidden;
+}
+
+/* 手机端：给 Hero 一个稳定的最小高度 + 合理内边距 */
+@media (max-width: 768px){
+
+  .hero{
+    min-height: 360px;           /* 给 Safari 一个稳定计算基础 */
+    background-position: center 80%;
+  }
+
+  .hero-overlay{
+    padding: 56px 16px 36px;     /* 底部加一点 padding，避免按钮贴到下一段 */
+    gap: 14px;                   /* 让标题、段落、按钮之间有自然间距 */
+  }
+
+  /* 防止 iOS 字体自动放大导致布局挤压 */
+  .hero h1{
+    font-size: 1.65rem;
+    line-height: 1.25;
+  }
+
+  .intro{
+    margin-bottom: 6px;
+  }
+
+  .hero-actions{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  /* 确保下一段永远在 Hero 之后正常排版（防 Safari stacking bug） */
+  .section{
+    position: relative;
+    z-index: 1;
+    background: #fff;
   }
 }
