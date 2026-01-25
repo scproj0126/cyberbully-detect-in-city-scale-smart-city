@@ -237,7 +237,7 @@ body {
   /* ---------- Hero Section ---------- */
   .hero{
     min-height: 300px;
-
+    overflow: visible;
     background-position: center 80%;
   }
 
@@ -356,6 +356,7 @@ body {
     background: #fff;
   }
 }
+
 
 
 
