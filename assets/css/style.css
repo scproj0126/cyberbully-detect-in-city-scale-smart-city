@@ -237,13 +237,13 @@ body {
   /* ---------- Hero Section ---------- */
   .hero{
     min-height: 300px;
-    max-height: 420px;
 
     background-position: center 80%;
   }
 
   .hero-overlay{
     padding: 52px 16px;
+    height: auto
   }
 
   .hero h1{
@@ -356,4 +356,5 @@ body {
     background: #fff;
   }
 }
+
 
