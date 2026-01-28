@@ -418,6 +418,28 @@ body {
   }
 }
 
+/* About page helpers */
+.page-header{
+  margin: 40px 0 24px;
+}
+
+.page-header h1{
+  margin-bottom: 8px;
+}
+
+.subtitle{
+  color: #666;
+  max-width: 720px;
+}
+
+.team-list{
+  margin-top: 12px;
+  padding-left: 20px;
+}
+
+.team-list li{
+  margin-bottom: 8px;
+}
 
 
 
