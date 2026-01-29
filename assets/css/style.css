@@ -465,23 +465,6 @@ body {
 }
 
 /* ---------- About page hero strip ---------- */
-.page-header{
-  background:
-    linear-gradient(
-      rgba(0,0,0,0.45),
-      rgba(0,0,0,0.45)
-    ),
-    url("./assets/images/about-banner.png") center / cover no-repeat;
-
-  padding: 72px 20px 64px;
-}
-
-.page-header{
-  max-width: 980px;
-  margin: 0 auto;
-  color: #fff;
-}
-
 .page-header h1{
   margin: 0 0 10px;
   font-size: 2.4rem;
@@ -507,6 +490,58 @@ body {
     font-size: 0.95rem;
   }
 }
+
+/* ========================= */
+/* About hero strip (final)  */
+/* ========================= */
+
+/* 关键：用 box-shadow 的超宽技巧“视觉铺满全屏”，即使在 container 内也成立 */
+.page-header{
+  /* full-bleed strip */
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("../images/about-banner.png") center / cover no-repeat;
+
+  color: #fff;
+  padding: 72px 20px 64px;
+  margin: 28px 0 30px;
+
+  /* full-bleed trick */
+  box-shadow: 0 0 0 100vmax rgba(0,0,0,0.001);
+  clip-path: inset(0 -100vmax);
+
+  border-radius: 14px;
+}
+
+.page-header h1{
+  margin: 0 0 10px;
+  font-size: 2.2rem;
+}
+
+.page-header .subtitle{
+  margin: 0;
+  max-width: 720px;
+  font-size: 1.05rem;
+  opacity: 0.92;
+  color: rgba(255,255,255,0.92);
+}
+
+@media (max-width: 768px){
+  .page-header{
+    padding: 56px 16px 48px;
+    margin: 16px 0 22px;
+    border-radius: 12px;
+  }
+
+  .page-header h1{
+    font-size: 1.75rem;
+  }
+
+  .page-header .subtitle{
+    font-size: 0.95rem;
+  }
+}
+
 
 
 
