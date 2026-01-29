@@ -476,18 +476,18 @@ body {
   padding: 72px 20px 64px;
 }
 
-.about-page-header{
+.page-header{
   max-width: 980px;
   margin: 0 auto;
   color: #fff;
 }
 
-.about-page-header h1{
+.page-header h1{
   margin: 0 0 10px;
   font-size: 2.4rem;
 }
 
-.about-page-header p{
+.page-header p{
   margin: 0;
   max-width: 720px;
   font-size: 1.05rem;
@@ -495,18 +495,19 @@ body {
 }
 
 @media (max-width: 768px){
-  .about-page-header{
+  .page-header{
     padding: 56px 16px 48px;
   }
 
-  .about-page-header h1{
+  .page-header h1{
     font-size: 1.8rem;
   }
 
-  .about-page-header p{
+  .page-header p{
     font-size: 0.95rem;
   }
 }
+
 
 
 
