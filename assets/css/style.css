@@ -471,7 +471,7 @@ body {
       rgba(0,0,0,0.45),
       rgba(0,0,0,0.45)
     ),
-    url("./assets/about-banner.jpg") center / cover no-repeat;
+    url("./assets/images/about-banner.jpg") center / cover no-repeat;
 
   padding: 72px 20px 64px;
 }
@@ -507,4 +507,5 @@ body {
     font-size: 0.95rem;
   }
 }
+
 
