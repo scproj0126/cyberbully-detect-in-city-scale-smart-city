@@ -1,1 +1,131 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project Proposal</title>
+
+  <link rel="stylesheet" href="../style.css" />
+
+  <style>
+    .proposal-wrap{
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+
+    .proposal-head{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .proposal-head h1{
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    .proposal-actions{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.15);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      background: #fff;
+      color: #111;
+    }
+    .btn:hover{ opacity: .9; }
+
+    .pdf-frame{
+      width: 100%;
+      height: 82vh;              
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #f5f5f5;
+    }
+
+    .pdf-frame iframe{
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* 移动端 */
+    @media (max-width: 768px){
+      .proposal-head{ flex-direction: column; align-items: flex-start; }
+      .pdf-frame{ height: 72vh; }
+    }
+
+    .tip{
+      margin-top: 10px;
+      font-size: 0.92rem;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="nav-left">
+      <span class="logo">Group Name</span>
+    </div>
+    <nav class="nav-right">
+      <a href="index.html">Project Home</a>
+      <a href="about.html">About Us</a>
+      <a href="meetings.html">Meeting Notes</a>
+      <a href="resources.html">Resources</a>
+      <div class="lang-menu">
+		  <button class="lang-btn" aria-haspopup="true">
+			Language ▾
+		  </button>
+		  <div class="lang-dropdown" role="menu">
+			<a href="./">English</a>
+			<a href="./cn/">中文</a>
+		  </div>
+		</div>
+    </nav>
+  </header>
+
+  <main class="proposal-wrap">
+    <div class="proposal-head">
+      <h1>Project Proposal (PDF)</h1>
+
+      <div class="proposal-actions">
+        <a class="btn" href="./proposal.pdf" target="_blank" rel="noopener">
+          Open in new tab
+        </a>
+        <a class="btn" href="./proposal.pdf" download>
+          Download PDF
+        </a>
+        <a class="btn" href="../index.html">Back to Home</a>
+      </div>
+    </div>
+
+    <div class="pdf-frame">
+      <iframe
+        src="./proposal.pdf#view=FitH"
+        title="Project Proposal PDF"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <p class="tip">
+      If the PDF preview doesn’t load on mobile browser, tap “Open in new tab”.
+    </p>
+  </main>
+</body>
+</html>
