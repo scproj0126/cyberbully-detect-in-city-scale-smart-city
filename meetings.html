@@ -5,6 +5,209 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meeting Notes | CDS553 Cyberbullying Detection Project</title>
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* ========= Meetings page styles (safe to paste into your main style.css) ========= */
+
+    .page-wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+    }
+
+    .page-title{
+      margin: 10px 0 6px;
+      font-size: 2rem;
+      letter-spacing: 0.2px;
+    }
+
+    .page-subtitle{
+      margin: 0 0 18px;
+      color: #666;
+      line-height: 1.6;
+      max-width: 760px;
+    }
+
+    .week-list{
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    details.week-card{
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.8);
+      overflow: hidden;
+    }
+
+    details.week-card[open]{
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      background: #fff;
+    }
+
+    summary.week-summary{
+      cursor: pointer;
+      list-style: none;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      user-select: none;
+    }
+
+    summary.week-summary::-webkit-details-marker{ display:none; }
+
+    .week-left{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .chev{
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      border: 1px solid rgba(0,0,0,0.12);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      font-size: 12px;
+      color: #444;
+      background: rgba(0,0,0,0.02);
+    }
+
+    details[open] .chev{ transform: rotate(90deg); }
+
+    .week-range{
+      font-weight: 600;
+      color: #222;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .week-tag{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.10);
+      color: #444;
+      background: rgba(0,0,0,0.03);
+      flex: 0 0 auto;
+    }
+
+    .week-tag.done{
+      border-color: rgba(46,125,50,0.25);
+      background: rgba(46,125,50,0.08);
+      color: #1b5e20;
+    }
+
+    .week-tag.upcoming{
+      border-color: rgba(25,118,210,0.25);
+      background: rgba(25,118,210,0.08);
+      color: #0d47a1;
+    }
+
+    .week-right{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.10);
+      background: rgba(0,0,0,0.02);
+      text-decoration: none;
+      color: #222;
+      font-size: 0.92rem;
+      line-height: 1;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .pill:hover{ background: rgba(0,0,0,0.05); transform: translateY(-1px); }
+
+    .pill.primary{
+      border-color: rgba(107, 82, 255, 0.28);
+      background: rgba(107, 82, 255, 0.10);
+      color: #2b1bbd;
+    }
+
+    .week-body{
+      padding: 0 16px 14px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .week-body p{
+      margin: 12px 0 10px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .resource-links{
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .link-card{
+      grid-column: span 12;
+      border-radius: 12px;
+      border: 1px dashed rgba(0,0,0,0.14);
+      padding: 12px 12px;
+      background: rgba(0,0,0,0.02);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .link-meta{
+      min-width: 0;
+    }
+    .link-title{
+      font-weight: 600;
+      color: #222;
+      margin: 0 0 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .link-desc{
+      margin: 0;
+      color: #666;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .muted{
+      opacity: 0.82;
+      font-size: 0.92rem;
+    }
+
+    @media (min-width: 720px){
+      .link-card{ grid-column: span 6; }
+    }
+
+    @media (max-width: 768px){
+      .page-title{ font-size: 1.6rem; }
+      summary.week-summary{ padding: 12px 12px; }
+      .pill{ padding: 7px 10px; font-size: 0.9rem; }
+    }
+  </style>
 </head>
 
 <body>
@@ -30,8 +233,199 @@
 		</div>
     </nav>
   </header>
+
+  <main class="page-wrap">
+    <h1 class="page-title">Meeting Notes</h1>
+    <p class="page-subtitle">
+      Weekly records (slides / notes / recordings) will be uploaded when available.
+      If a week has no materials yet, the button will take you to the default <span class="muted">/meetings</span> folder in our GitHub repository.
+    </p>
+
+    <div class="week-list" id="weekList">
+      <!-- Cards inserted by JS -->
+    </div>
+  </main>
+
+  <script>
+    // ====== 1) CHANGE THIS to your repo meetings folder ======
+    // Example:
+    // const REPO_MEETINGS_URL = "https://github.com/<org>/<repo>/tree/main/meetings";
+    const REPO_MEETINGS_URL = "https://github.com/<org>/<repo>/tree/main/meetings";
+
+    // ====== 2) Weekly data: put real links only when you have them ======
+    // - If a link is missing, it won't show up.
+    // - "defaultOpen" can be true for the current week.
+    const weeks = [
+      {
+        range: "12 January – 18 January",
+        status: "done", // done | upcoming | empty
+        note: "Weekly meeting records (upload when ready).",
+        links: {
+          // slides: REPO_MEETINGS_URL + "/Week01/slides.pdf",
+          // recording: REPO_MEETINGS_URL + "/Week01/recording.mp4",
+          // minutes: REPO_MEETINGS_URL + "/Week01/notes.md",
+        }
+      },
+      {
+        range: "19 January – 25 January",
+        status: "done",
+        note: "Weekly meeting records (upload when ready).",
+        links: {}
+      },
+      {
+        range: "26 January – 1 February",
+        status: "done",
+        note: "Weekly meeting records (upload when ready).",
+        links: {}
+      },
+      {
+        range: "2 February – 8 February",
+        status: "done",
+        note: "Weekly meeting records (upload when ready).",
+        links: {}
+      },
+      {
+        range: "9 February – 15 February",
+        status: "upcoming",
+        note: "Current week (materials may be added after discussion).",
+        defaultOpen: true,
+        links: {}
+      },
+      {
+        range: "16 February – 22 February",
+        status: "empty",
+        note: "No files yet. Use the default folder link.",
+        links: {}
+      },
+      {
+        range: "23 February – 1 March",
+        status: "empty",
+        note: "No files yet. Use the default folder link.",
+        links: {}
+      },
+      {
+        range: "2 March – 8 March",
+        status: "empty",
+        note: "No files yet. Use the default folder link.",
+        links: {}
+      },
+      {
+        range: "9 March – 15 March",
+        status: "empty",
+        note: "No files yet. Use the default folder link.",
+        links: {}
+      },
+      {
+        range: "16 March – 22 March",
+        status: "empty",
+        note: "No files yet. Use the default folder link.",
+        links: {}
+      },
+      {
+        range: "23 March – 29 March",
+        status: "empty",
+        note: "No files yet. Use the default folder link.",
+        links: {}
+      },
+      {
+        range: "30 March – 5 April",
+        status: "empty",
+        note: "No files yet. Use the default folder link.",
+        links: {}
+      },
+      {
+        range: "6 April – 12 April",
+        status: "empty",
+        note: "No files yet. Use the default folder link.",
+        links: {}
+      },
+      {
+        range: "13 April – 19 April",
+        status: "empty",
+        note: "No files yet. Use the default folder link.",
+        links: {}
+      },
+      {
+        range: "20 April – 26 April",
+        status: "empty",
+        note: "No files yet. Use the default folder link.",
+        links: {}
+      },
+      {
+        range: "27 April – 3 May",
+        status: "empty",
+        note: "No files yet. Use the default folder link.",
+        links: {}
+      },
+    ];
+
+    function statusBadge(status){
+      if(status === "done") return `<span class="week-tag done">✓ Uploaded / Done</span>`;
+      if(status === "upcoming") return `<span class="week-tag upcoming">Current week</span>`;
+      return `<span class="week-tag">For upload</span>`;
+    }
+
+    function linkBlock(label, desc, url){
+      return `
+        <div class="link-card">
+          <div class="link-meta">
+            <p class="link-title">${label}</p>
+            <p class="link-desc">${desc}</p>
+          </div>
+          <a class="pill primary" href="${url}" target="_blank" rel="noopener noreferrer">Open ↗</a>
+        </div>
+      `;
+    }
+
+    function renderWeekCard(w){
+      const hasAny = w.links && Object.keys(w.links).length > 0;
+
+      // Default button always present
+      const defaultBtn = `<a class="pill" href="${REPO_MEETINGS_URL}" target="_blank" rel="noopener noreferrer">Open folder ↗</a>`;
+
+      // Optional links (show only if provided)
+      let extraLinks = "";
+      if (hasAny){
+        if (w.links.slides) extraLinks += linkBlock("Slides (PPT/PDF)", "Weekly slides used in discussion.", w.links.slides);
+        if (w.links.minutes) extraLinks += linkBlock("Meeting Notes", "Summary / decisions / action items.", w.links.minutes);
+        if (w.links.recording) extraLinks += linkBlock("Recording", "Class recording or meeting recording.", w.links.recording);
+        if (w.links.assets) extraLinks += linkBlock("Attachments", "Extra files (figures / datasets / screenshots).", w.links.assets);
+      } else {
+        extraLinks = linkBlock("Default folder", "No specific files for this week yet. Use the meetings folder.", REPO_MEETINGS_URL);
+      }
+
+      const openAttr = w.defaultOpen ? " open" : "";
+
+      return `
+        <details class="week-card"${openAttr}>
+          <summary class="week-summary">
+            <div class="week-left">
+              <div class="chev">›</div>
+              <div class="week-range">${w.range}</div>
+              ${statusBadge(w.status)}
+            </div>
+            <div class="week-right">
+              ${defaultBtn}
+            </div>
+          </summary>
+
+          <div class="week-body">
+            <p>${w.note || "Weekly meeting records."}</p>
+            <div class="resource-links">
+              ${extraLinks}
+            </div>
+          </div>
+        </details>
+      `;
+    }
+
+    const weekList = document.getElementById("weekList");
+    weekList.innerHTML = weeks.map(renderWeekCard).join("");
+  </script>
+	
 </body>
 </html>
+
 
 
 
