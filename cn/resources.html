@@ -3,8 +3,130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>项目主页 | 网络欺凌检测</title>
+  <title>项目资源 | CDS553 网络欺凌检测项目</title>
   <link rel="stylesheet" href="../assets/css/style.css" />
+
+  <!-- Page-only styles (safe, minimal) -->
+  <style>
+    .page-header{
+      padding: 32px 16px 12px;
+      text-align: center;
+    }
+    .page-header h1{
+      margin: 0 0 8px;
+      line-height: 1.2;
+    }
+    .page-header p{
+      margin: 0 auto;
+      max-width: 920px;
+      opacity: 0.92;
+    }
+
+    .page-section{
+      padding: 18px 16px 44px;
+    }
+    .container{
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .stack{
+      display: grid;
+      gap: 14px;
+    }
+
+    /* Card */
+    .card{
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+      padding: 18px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+    }
+    .card-title{
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .card-title h2{
+      margin: 0;
+      font-size: 1.15rem;
+      line-height: 1.2;
+    }
+    .tag{
+      font-size: 0.85rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      opacity: 0.9;
+      white-space: nowrap;
+    }
+
+    /* Lists inside cards */
+    .resource-list{
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .resource-item{
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 14px;
+      padding: 12px 12px;
+      background: rgba(0,0,0,0.16);
+    }
+    .resource-item .top{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .resource-item .name{
+      font-weight: 650;
+    }
+    .resource-item .meta{
+      opacity: 0.85;
+      font-size: 0.92rem;
+      margin-top: 6px;
+      line-height: 1.45;
+    }
+    .resource-item a{
+      text-decoration: none;
+    }
+    .links{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      font-size: 0.9rem;
+    }
+
+    .note{
+      margin-top: 10px;
+      opacity: 0.9;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px){
+      .page-header{ padding: 26px 14px 10px; }
+      .page-section{ padding: 14px 14px 36px; }
+      .card{ padding: 14px; }
+      .card-title{ flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 
 <body>
@@ -12,25 +134,224 @@
   <!-- Navigation -->
   <header class="navbar">
     <div class="nav-left">
-      <span class="logo">CDS553课程项目：网络欺凌检测</span>
+      <span class="logo">小组名称</span>
     </div>
     <nav class="nav-right">
       <a href="../cn/index.html">项目主页</a>
       <a href="../cn/about.html">关于我们</a>
       <a href="../cn/meetings.html">会议记录</a>
-      <a href="../cn/resources.html">项目资源</a>
+      <a href="../cn/resources.html" aria-current="page">项目资源</a>
 
       <div class="lang-menu">
         <button class="lang-btn" aria-haspopup="true">
           语言 ▾
         </button>
         <div class="lang-dropdown" role="menu">
-          <a href="../">English</a>
-          <a href="./">中文</a>
+          <!-- 英文页在根目录 -->
+          <a href="../resources.html">English</a>
+          <a href="../cn/resources.html">中文</a>
         </div>
       </div>
     </nav>
   </header>
+
+  <!-- Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>项目资源</h1>
+      <p>
+        本页面整理了本项目使用与参考的主要数据集、模型/代码资源与关键阅读材料。
+        （外部链接的使用需遵循原来源网站或资源所声明的许可与条款。）
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="page-section">
+    <div class="container">
+      <div class="stack">
+
+        <!-- Card 1: Datasets -->
+        <article class="card" id="datasets">
+          <div class="card-title">
+            <h2>📊 数据集</h2>
+            <span class="tag">数据来源</span>
+          </div>
+
+          <ul class="resource-list">
+            <li class="resource-item">
+              <div class="top">
+                <div class="name">Cyberbullying Dataset（Kaggle）</div>
+                <a class="pill" href="https://www.kaggle.com/datasets/saurabhshahane/cyberbullying-dataset" target="_blank" rel="noopener">打开 ↗</a>
+              </div>
+              <div class="meta">
+                按网络欺凌类别标注的文本样本，用于基线训练与评估。
+              </div>
+            </li>
+
+            <li class="resource-item">
+              <div class="top">
+                <div class="name">Hate Speech / Offensive Language（GitHub）</div>
+                <a class="pill" href="https://github.com/zeeraktalat/hatespeech" target="_blank" rel="noopener">打开 ↗</a>
+              </div>
+              <div class="meta">
+                仇恨言论/冒犯性语言相关资源与示例，用于补充对鲁棒性与泛化能力的检验。
+              </div>
+            </li>
+
+            <li class="resource-item">
+              <div class="top">
+                <div class="name">Zenodo Dataset / Resource（Record）</div>
+                <a class="pill" href="https://zenodo.org/records/4000398" target="_blank" rel="noopener">打开 ↗</a>
+              </div>
+              <div class="meta">
+                公开研究工件记录；用于参考可复现性信息与基准对比背景。
+              </div>
+            </li>
+          </ul>
+
+          <p class="note">
+            提示：若某数据集存在多个版本，我们会在最终报告中注明具体版本、清洗步骤与预处理细节。
+          </p>
+        </article>
+
+        <!-- Card 2: Models & Code References -->
+        <article class="card" id="models">
+          <div class="card-title">
+            <h2>🧠 模型与代码参考</h2>
+            <span class="tag">基线与实现</span>
+          </div>
+
+          <ul class="resource-list">
+            <li class="resource-item">
+              <div class="top">
+                <div class="name">Comparative ML Models Repo（参考实现）</div>
+                <a class="pill" href="https://github.com/SrinidhV/Cyberbullying-Detection-on-Social-Media-A-Comparative-Analysis-of-Machine-Learning-Models" target="_blank" rel="noopener">打开 ↗</a>
+              </div>
+              <div class="meta">
+                传统机器学习基线流程参考（特征提取 + 经典分类器）及评估示例，用于对照与复现。
+              </div>
+            </li>
+
+            <li class="resource-item">
+              <div class="top">
+                <div class="name">Cyber-Bullying Detection on Social Media Platform（ML）</div>
+                <a class="pill" href="https://github.com/SM2142/Cyber-Bullying-Detection-on-Scocial-Media-Plaform-Using-Machine-Learning" target="_blank" rel="noopener">打开 ↗</a>
+              </div>
+              <div class="meta">
+                另一份参考仓库，用于检查预处理细节与基线实现方式，作为实验 sanity check。
+              </div>
+            </li>
+
+            <li class="resource-item">
+              <div class="top">
+                <div class="name">BERT / RoBERTa（HuggingFace Transformers）</div>
+                <div class="links">
+                  <a class="pill" href="https://huggingface.co/docs/transformers/index" target="_blank" rel="noopener">文档 ↗</a>
+                  <a class="pill" href="https://huggingface.co/models" target="_blank" rel="noopener">模型库 ↗</a>
+                </div>
+              </div>
+              <div class="meta">
+                预训练 Transformer 编码器：作为文本基线模型，并用于后续多模态融合实验。
+              </div>
+            </li>
+          </ul>
+
+          <p class="note">
+            我们将通过记录运行环境、随机种子与训练配置来保证实验可复现性与可追溯性。
+          </p>
+        </article>
+
+        <!-- Card 3: Key Papers -->
+        <article class="card" id="papers">
+          <div class="card-title">
+            <h2>📚 关键阅读与背景资料</h2>
+            <span class="tag">背景</span>
+          </div>
+
+          <ul class="resource-list">
+            <li class="resource-item">
+              <div class="top">
+                <div class="name">Cyberbullying：是什么以及如何应对（UNICEF）</div>
+                <a class="pill" href="https://www.unicef.org/stories/how-to-stop-cyberbullying" target="_blank" rel="noopener">打开 ↗</a>
+              </div>
+              <div class="meta">
+                提供实务背景与定义，有助于阐释项目动机、风险与应用场景。
+              </div>
+            </li>
+
+            <li class="resource-item">
+              <div class="top">
+                <div class="name">联合国儿童基金会中文：什么是网络欺凌、如何制止</div>
+                <a class="pill" href="https://www.unicef.org/zh/%E7%BB%88%E7%BB%93%E6%9A%B4%E5%8A%9B/%E7%BD%91%E7%BB%9C%E6%AC%BA%E5%87%8C%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E6%AC%BA%E5%87%8C%EF%BC%8C%E5%A6%82%E4%BD%95%E6%9D%9C%E7%BB%9D%EF%BC%9F" target="_blank" rel="noopener">打开 ↗</a>
+              </div>
+              <div class="meta">
+                中文概览材料，便于公共沟通与项目背景说明。
+              </div>
+            </li>
+
+            <li class="resource-item">
+              <div class="top">
+                <div class="name">CU Advance Lab（研究组 / 项目主页）</div>
+                <a class="pill" href="https://cuadvancelab.github.io/index.html" target="_blank" rel="noopener">打开 ↗</a>
+              </div>
+              <div class="meta">
+                相关研究方向与资源参考页面，用于拓展项目背景与相关工作线索。
+              </div>
+            </li>
+          </ul>
+
+          <p class="note">
+            最终报告将使用 APA 格式正式引用同行评审论文；本页面更偏“快速阅读清单/参考入口”。
+          </p>
+        </article>
+
+        <!-- Card 4: Tools (optional) -->
+        <article class="card" id="tools">
+          <div class="card-title">
+            <h2>🧰 工具与框架</h2>
+            <span class="tag">可复现性</span>
+          </div>
+
+          <ul class="resource-list">
+            <li class="resource-item">
+              <div class="top">
+                <div class="name">Python / PyTorch / scikit-learn</div>
+                <span class="tag">核心</span>
+              </div>
+              <div class="meta">
+                用于传统 ML 基线、Transformer 微调与多模态融合实验实现。
+              </div>
+            </li>
+
+            <li class="resource-item">
+              <div class="top">
+                <div class="name">Google Colab / 本地 GPU</div>
+                <span class="tag">算力</span>
+              </div>
+              <div class="meta">
+                作为开发与实验运行环境；最终会记录关键环境信息以支持复现。
+              </div>
+            </li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (optional) -->
+  <footer class="footer">
+    <div class="container" style="padding: 18px 16px; opacity: 0.85; text-align:center;">
+      © <span id="year"></span> CDS553课程项目：网络欺凌检测
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>
+
 
