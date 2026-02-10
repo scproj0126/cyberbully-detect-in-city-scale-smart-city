@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>会议记录 | CDS553 网络欺凌检测项目</title>
   <link rel="stylesheet" href="../assets/css/style.css" />
-</head>
   
   <style>
     .container{ max-width: 980px; margin: 0 auto; padding: 0 20px; }
@@ -188,6 +187,10 @@
   <main class="container">
     <section class="page-header">
       <h1>会议记录</h1>
+        <p>
+          本页面按教学周汇总会议材料（如视频记录、PPT、讨论纪要等）。
+          若某周暂无资料，按钮会默认跳转到 GitHub 的 meetings 文件夹，供后续补充。
+        </p>
     </section>
 
     <section class="week-board">
@@ -263,23 +266,23 @@
         }
       }
 
-      currentLabel.textContent = currentWeekNum ? `当前周：Week ${currentWeekNum}` : "当前周：—";
+      currentLabel.textContent = currentWeekNum ? `当前周：第 ${currentWeekNum} 周` : "当前周：已完成（共 16 周）";
 
       // render
       list.innerHTML = "";
       for (const w of weeks){
         const status = getStatus(today, w);
 
-        const badgeText = status === "done" ? "Done"
-                        : status === "current" ? "Current week"
-                        : "Upcoming";
+        const badgeText = status === "done" ? "已完成"
+                        : status === "current" ? "本周"
+                        : "未开始";
 
         const li = document.createElement("li");
         li.className = "week-card" + (status === "current" ? " current" : "");
 
         li.innerHTML = `
           <div class="week-left">
-            <div class="week-title">Week ${w.week}</div>
+            <div class="week-title">第 ${w.week} 周</div>
             <div class="badge ${status}">${badgeText}</div>
           </div>
           <div class="week-actions">
@@ -296,6 +299,7 @@
   
 </body>
 </html>
+
 
 
 
