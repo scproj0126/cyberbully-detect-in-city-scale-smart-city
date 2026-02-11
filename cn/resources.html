@@ -7,129 +7,9 @@
   <link rel="stylesheet" href="../assets/css/style.css" />
 
   <!-- Page-only styles (safe, minimal) -->
-  <style>
-    .page-header{
-      padding: 32px 16px 12px;
-      text-align: center;
-    }
-    .page-header h1{
-      margin: 0 0 8px;
-      line-height: 1.2;
-    }
-    .page-header p{
-      margin: 0 auto;
-      max-width: 920px;
-      opacity: 0.92;
-    }
-
-    .page-section{
-      padding: 18px 16px 44px;
-    }
-    .container{
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .stack{
-      display: grid;
-      gap: 14px;
-    }
-
-    /* Card */
-    .card{
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 16px;
-      padding: 18px;
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(6px);
-    }
-    .card-title{
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-    .card-title h2{
-      margin: 0;
-      font-size: 1.15rem;
-      line-height: 1.2;
-    }
-    .tag{
-      font-size: 0.85rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.16);
-      opacity: 0.9;
-      white-space: nowrap;
-    }
-
-    /* Lists inside cards */
-    .resource-list{
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    .resource-item{
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 14px;
-      padding: 12px 12px;
-      background: rgba(0,0,0,0.16);
-    }
-    .resource-item .top{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .resource-item .name{
-      font-weight: 650;
-    }
-    .resource-item .meta{
-      opacity: 0.85;
-      font-size: 0.92rem;
-      margin-top: 6px;
-      line-height: 1.45;
-    }
-    .resource-item a{
-      text-decoration: none;
-    }
-    .links{
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-    .pill{
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.16);
-      font-size: 0.9rem;
-    }
-
-    .note{
-      margin-top: 10px;
-      opacity: 0.9;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 768px){
-      .page-header{ padding: 26px 14px 10px; }
-      .page-section{ padding: 14px 14px 36px; }
-      .card{ padding: 14px; }
-      .card-title{ flex-direction: column; align-items: flex-start; }
-    }
-  </style>
 </head>
 
-<body>
+<body class="page-resources">
 
   <!-- Navigation -->
   <header class="navbar">
@@ -155,17 +35,15 @@
     </nav>
   </header>
 
-  <!-- Header -->
   <section class="page-header">
     <div class="container">
       <h1>项目资源</h1>
-      <p>
-        本页面整理了本项目使用与参考的主要数据集、模型/代码资源与关键阅读材料。
-        （外部链接的使用需遵循原来源网站或资源所声明的许可与条款。）
-      </p>
+      <p class="subtitle">汇总本项目使用的数据集、模型参考与关键阅读材料。外部链接遵循原网站的许可与使用条款。</p>
     </div>
   </section>
 
+
+  <!-- Header -->
   <!-- Content -->
   <section class="page-section">
     <div class="container">
@@ -354,8 +232,7 @@
 
   <!-- Footer (optional) -->
   <footer class="footer">
-    <div class="container" style="padding: 18px 16px; opacity: 0.85; text-align:center;">
-      © <span id="year"></span> CDS553课程项目 · 仅用于学术与课程研究目的
+    <div class="container footer-inner">© <span id="year"></span> CDS553课程项目 · 仅用于学术与课程研究目的
     </div>
   </footer>
 

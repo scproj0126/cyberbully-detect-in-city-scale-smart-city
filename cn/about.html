@@ -8,89 +8,9 @@
   <link rel="stylesheet" href="../assets/css/style.css" />
 
   <!-- 本页补充样式 -->
-  <style>
-    .container { max-width: 980px; margin: 0 auto; padding: 0 20px; }
-
-    /* 顶部标题区 */
-    .about-hero {
-      position: relative;
-      margin: 28px 0 16px;
-      padding: 18px 0 6px;
-    }
-    .about-hero .hero-skyline {
-      width: 100%;
-      max-height: 160px;
-      object-fit: contain;
-      opacity: 0.9;
-      display: block;
-      margin: 6px 0 10px;
-    }
-    .about-hero h1 { margin: 0 0 8px; font-size: 2.2rem; letter-spacing: 0.2px; }
-    .about-hero .subtitle { margin: 0; color: #666; max-width: 720px; }
-
-    /* 团队卡片 */
-    .team-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 14px;
-    }
-    .member-card {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 14px;
-      padding: 14px;
-      border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 12px;
-      background: #fff;
-    }
-    .member-badge {
-      border: 1px dashed rgba(0,0,0,0.18);
-      border-radius: 12px;
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 120px;
-      background: rgba(0,0,0,0.02);
-    }
-    .member-badge img {
-      width: 100%;
-      height: 100%;
-      max-height: 110px;
-      object-fit: contain;
-      display: block;
-    }
-    .member-name {
-      margin: 0 0 6px;
-      font-size: 1.15rem;
-      line-height: 1.3;
-    }
-    .member-meta { margin: 0 0 8px; color: #666; font-size: 0.95rem; }
-    .member-desc { margin: 0; color: #333; line-height: 1.7; }
-    .member-tags {
-      margin: 10px 0 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .member-tags li {
-      font-size: 0.85rem;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.10);
-      color: #444;
-      background: rgba(0,0,0,0.02);
-    }
-
-    /* 桌面端扩列 */
-    @media (min-width: 920px) {
-      .team-grid { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
 </head>
+
+<body class="page-about">
 
   <!-- ================= 导航栏（沿用你原来的结构与链接） ================= -->
   <header class="navbar">
@@ -115,18 +35,15 @@
     </nav>
   </header>
 
-  <!-- ================= 页面标题（带装饰图占位） ================= -->
-  <section class="about-hero container">
-    <h1>关于我们</h1>
-    <p class="subtitle">了解本学术项目的背景、团队成员以及研究动机。</p>
-
-    <!-- 可选：你草图顶部的“城市线条/装饰”图（不放也没关系） -->
-    <img class="hero-skyline"
-         src="../assets/images/about-banner.png"
-         alt=""
-         aria-hidden="true" />
+  <section class="page-header">
+    <div class="container">
+      <h1>关于我们</h1>
+      <p class="subtitle">了解本学术项目的背景、团队成员以及研究动机。</p>
+    </div>
   </section>
 
+
+  <!-- ================= 页面标题（带装饰图占位） ================= -->
   <!-- ================= 主体内容 ================= -->
   <main class="container">
 
@@ -155,7 +72,7 @@
         <!-- 成员 1 -->
         <article class="member-card">
           <div class="member-badge">
-            <img src="../assets/img/team/sign-01.png" alt="成员 1（占位图）" />
+            <img src="../assets/images/team/sign-01.png" alt="成员 1（占位图）" />
           </div>
           <div class="member-info">
             <h3 class="member-name">Mr. Zhang Y., MScSCTA</h3>
@@ -173,7 +90,7 @@
         <!-- 成员 2 -->
         <article class="member-card">
           <div class="member-badge">
-            <img src="../assets/img/team/sign-02.png" alt="成员 2（占位图）" />
+            <img src="../assets/images/team/sign-02.png" alt="成员 2（占位图）" />
           </div>
           <div class="member-info">
             <h3 class="member-name">Ms. Li R., MScSCTA</h3>
@@ -191,7 +108,7 @@
         <!-- 成员 3 -->
         <article class="member-card">
           <div class="member-badge">
-            <img src="../assets/img/team/sign-03.png" alt="成员 3（占位图）" />
+            <img src="../assets/images/team/sign-03.png" alt="成员 3（占位图）" />
           </div>
           <div class="member-info">
             <h3 class="member-name">Mr. Wang J., MScSCTA</h3>
@@ -209,7 +126,7 @@
         <!-- 成员 4 -->
         <article class="member-card">
           <div class="member-badge">
-            <img src="../assets/img/team/sign-04.png" alt="成员 4（占位图）" />
+            <img src="../assets/images/team/sign-04.png" alt="成员 4（占位图）" />
           </div>
           <div class="member-info">
             <h3 class="member-name">Ms. Chen S., MScSCTA</h3>
@@ -227,7 +144,7 @@
         <!-- 成员 5 -->
         <article class="member-card">
           <div class="member-badge">
-            <img src="../assets/img/team/sign-05.png" alt="成员 5（占位图）" />
+            <img src="../assets/images/team/sign-05.png" alt="成员 5（占位图）" />
           </div>
           <div class="member-info">
             <h3 class="member-name">Mr. Guo T., MScSCTA</h3>
