@@ -12,7 +12,7 @@
 
 <body class="page-about">
 
-  <!-- ================= 导航栏（沿用你原来的结构与链接） ================= -->
+  <!-- ================= 导航栏 ================= -->
   <header class="navbar">
     <div class="nav-left">
       <a href="../" class="logo">CDS553课程项目：网络欺凌检测</a>
@@ -43,7 +43,7 @@
   </section>
 
 
-  <!-- ================= 页面标题（带装饰图占位） ================= -->
+  <!-- ================= 页面标题 ================= -->
   <!-- ================= 主体内容 ================= -->
   <main class="container">
 
@@ -51,9 +51,16 @@
     <section class="section">
       <h2>项目背景</h2>
       <p>
-        本项目聚焦于网络社交平台中的网络欺凌识别问题。在智能城市与数字社会快速发展的背景下，
-        在线沟通已成为日常生活的重要部分，但随之出现的攻击性言论、骚扰与歧视表达也可能对个体心理健康、
-        社群氛围与公共安全产生负面影响。
+        本项目聚焦智慧城市语境下社交网络中的网络欺凌识别与检测问题。随着线上交流在城市公共空间、
+        社区平台与服务反馈渠道中的普及，攻击性言论与网络欺凌可能以更快速度扩散并放大其社会影响。
+        尽管文本分类模型已取得较好效果，但在城市尺度部署中仍常受到跨平台领域差异（domain shift）、
+        类别不平衡与少数类型识别不足等因素影响，导致模型在真实环境中的稳定性与可解释性不足。
+        
+        为贴近智能城市治理场景，本项目提出一套可复现（reproducible）且多模态（multi-modal）的检测流程：
+        以文本语义表征为核心，并融合结构化上下文信号（如时间特征、互动统计、线程结构指标等）；
+        在数据可用时进一步引入跨平台链接上下文模态（例如 Tweet–Vine 映射标识符），以轻量方式刻画内容的传播与关联模式。
+        我们将基于统一评测协议系统对比经典机器学习与 Transformer 基线，并通过消融实验量化“链接上下文”带来的增益，
+        重点关注宏平均指标与少数类召回表现。     
       </p>
       <p>
         因此，我们希望通过数据驱动的方法，对网络文本中的潜在欺凌信号进行建模与分析，为后续研究与系统设计提供参考。
@@ -64,7 +71,7 @@
     <section class="section">
       <h2>项目团队</h2>
       <p>
-        本项目由多名学生组成的研究小组共同完成。
+        本项目由 MScSCTA 学生研究小组共同完成。仅用于学术交流与课程研究目的。
       </p>
 
       <div class="team-grid">
@@ -76,10 +83,10 @@
           </div>
           <div class="member-info">
             <h3 class="member-name">Mr. Zhang Y., MScSCTA</h3>
-            <p class="member-meta">职责：数据清洗 · 特征工程 · 规则基线</p>
+            <p class="member-meta">职责：数据预处理 · 特征工程 · 经典基线</p>
             <p class="member-desc">
-              占位简介：负责构建数据预处理流程（去噪、分词、规范化）并实现可解释的基线方法，
-              为后续模型训练与误差分析提供稳定对照。
+              负责构建可复现的数据处理流程（去重、规范化、划分与标签映射），并实现 TF-IDF + 线性分类器等经典基线，
+              为多模态融合与误差分析提供稳定对照。
             </p>
             <ul class="member-tags">
               <li>Preprocessing</li><li>Baseline</li><li>Error Analysis</li>
@@ -94,13 +101,12 @@
           </div>
           <div class="member-info">
             <h3 class="member-name">Ms. Li R., MScSCTA</h3>
-            <p class="member-meta">职责：模型训练 · 调参 · 评估指标</p>
+            <p class="member-meta">职责：Transformer 微调 · 超参数优化 · 对比实验</p>
             <p class="member-desc">
-              占位简介：负责训练多种机器学习/深度学习模型并进行超参数搜索，
-              同时对 Precision / Recall / F1 等指标进行可复现评估。
+              负责 BERT/RoBERTa 等预训练模型的微调与训练管理，在统一协议下与经典基线进行对比，并配合后续融合模型进行性能评估与复现实验记录。
             </p>
             <ul class="member-tags">
-              <li>Training</li><li>Tuning</li><li>Metrics</li>
+              <li>Training</li><li>Tuning</li><li>Transformers</li>
             </ul>
           </div>
         </article>
@@ -112,13 +118,13 @@
           </div>
           <div class="member-info">
             <h3 class="member-name">Mr. Wang J., MScSCTA</h3>
-            <p class="member-meta">职责：文本表示 · 向量化 · 特征对比</p>
+            <p class="member-meta">职责：链接上下文特征 · 结构化信号构建 · 模态融合</p>
             <p class="member-desc">
-              占位简介：负责对比不同文本表示方案（如 TF-IDF、词向量、上下文表征），
-              并分析特征对模型性能与泛化能力的影响。
-            </p>
+              负责从存档/索引数据中提取跨平台链接标识符（如 Tweet–Vine 映射），构建轻量链接上下文特征（频次、时间扩散、交互密度代理等），
+              并设计上下文编码与融合输入形式以量化“模态增益”。同时负责项目网站的信息架构与页面实现（中英双语、资源索引、内容更新），
+              确保线上展示与实验进展保持一致、便于学术交流。
             <ul class="member-tags">
-              <li>Representation</li><li>Embedding</li><li>Comparison</li>
+              <li>Link Context</li><li>Fusion</li><li>Web</li>
             </ul>
           </div>
         </article>
@@ -130,13 +136,13 @@
           </div>
           <div class="member-info">
             <h3 class="member-name">Ms. Chen S., MScSCTA</h3>
-            <p class="member-meta">职责：可视化 · 报告撰写 · 结果解读</p>
+            <p class="member-meta">职责：评估指标 · 不平衡分析 · 鲁棒性实验</p>
             <p class="member-desc">
-              占位简介：负责制作图表与可视化（混淆矩阵、阈值曲线等），并将实验结论整理成结构化报告，
-              强调局限性与可改进方向。
+              负责构建不平衡友好的评估与报告方式（macro 指标、少数类召回等），并组织鲁棒性相关实验（领域迁移/噪声扰动等）与误差分析，
+              输出可解释结论与改进方向。
             </p>
             <ul class="member-tags">
-              <li>Visualization</li><li>Writing</li><li>Interpretation</li>
+              <li>Evaluation</li><li>Robustness</li><li>Interpretation</li>
             </ul>
           </div>
         </article>
@@ -148,13 +154,12 @@
           </div>
           <div class="member-info">
             <h3 class="member-name">Mr. Guo T., MScSCTA</h3>
-            <p class="member-meta">职责：网页整合 · 复现脚本 · 项目管理</p>
+            <p class="member-meta">职责：复现脚本 · 运行说明 · 版本管理</p>
             <p class="member-desc">
-              占位简介：负责整合项目网页结构与资源索引，维护实验复现脚本与运行说明，
-              并协调分工与版本管理，保证交付一致性。
+              负责整理复现实验所需脚本与运行说明，维护版本与文件结构一致性，并协助协调组内任务分工与交付节奏，保证材料可追溯与可复现。
             </p>
             <ul class="member-tags">
-              <li>Web</li><li>Reproducibility</li><li>Project Mgmt</li>
+              <li>Reproducibility</li><li>Versioning</li><li>Coordination</li>
             </ul>
           </div>
         </article>
@@ -166,12 +171,14 @@
     <section class="section">
       <h2>研究动机</h2>
       <p>
-        本项目的研究动机在于探索机器学习方法在网络欺凌自动识别中的可行性，
-        并分析不同模型在真实应用场景下的性能与局限性。
+        本项目的动机在于缩小“课程/基准任务”与“智能城市真实部署约束”之间的差距。
+        我们不仅关注文本模型的整体准确性，更关注在类别不平衡与跨域变化下，
+        模型对少数类型网络欺凌的稳定识别能力，以及在城市尺度运行时对资源与可复现性的要求。
       </p>
       <p>
-        通过本项目，我们希望加深对智能城市背景下数字安全问题的理解，
-        并为后续相关研究或系统设计提供参考。
+        因此，我们将“多模态”实现明确为可操作的文本语义 + 结构化上下文 + 链接上下文信号，
+        并通过消融实验（text-only vs. text + link context）量化结构化社交信号的贡献，
+        重点报告宏平均指标与少数类召回，形成更贴近实际治理与学术复现实践的研究结论。
       </p>
     </section>
 
