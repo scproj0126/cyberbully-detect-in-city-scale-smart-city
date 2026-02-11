@@ -12,10 +12,10 @@
 
 <body class="page-about">
 
-  <!-- ================= Navbar (same structure and links) ================= -->
+  <!-- ================= Navbar ================= -->
   <header class="navbar">
     <div class="nav-left">
-      <a href="./" class="logo">CDS553 Course Project: Cyberbullying Detection</a>
+      <a href="./index.html" class="logo">CDS553 Course Project: Cyberbullying Detection</a>
     </div>
 
     <nav class="nav-right">
@@ -49,22 +49,27 @@
     <section class="section">
       <h2>Project Background</h2>
       <p>
-        This project focuses on cyberbullying detection on online social platforms. With the rapid development of smart cities
-        and the digital society, online communication has become an essential part of everyday life. However, aggressive language,
-        harassment, and discriminatory expressions can negatively affect individuals’ mental well-being, community climate,
-        and public safety.
+        This project focuses on cyberbullying identification and detection in social networks under smart-city contexts.
+        As online communication becomes increasingly common in urban public spaces, community platforms, and service-feedback channels,
+        aggressive language and cyberbullying can spread faster and amplify their social impact.
+        Although text classification models have achieved strong results, city-scale deployment is often affected by cross-platform domain shift,
+        class imbalance, and weak performance on minority bullying types, which can reduce stability and interpretability in real-world settings.
+        To better align with smart-city governance scenarios, we propose a reproducible and multi-modal detection pipeline:
+        centered on text semantic representations, fused with structured context signals (e.g., temporal features, interaction statistics, and thread-structure indicators);
+        and, when available, incorporating a cross-platform link-context modality (e.g., Tweet–Vine mapping identifiers) to capture propagation and association patterns in a lightweight manner.
+        Under a unified evaluation protocol, we will systematically compare classic machine learning methods with transformer baselines,
+        and quantify the gains brought by “link context” via ablation studies, with particular attention to macro-level metrics and minority-class recall.
       </p>
       <p>
-        Therefore, we aim to adopt data-driven methods to model and analyze potential bullying signals in online text,
-        providing references for future research and system design.
+        Through data-driven methods, we aim to model and analyze potential bullying signals in online text, providing references for follow-up research and system design.
       </p>
     </section>
 
-    <!-- Project Team (card layout + signature placeholders) -->
+    <!-- Project Team (card layout + signature/monogram images) -->
     <section class="section">
       <h2>Project Team</h2>
       <p>
-        This project is completed by a student research group.
+        This project is completed by an MScSCTA student research group. For academic exchange and course research purposes only.
       </p>
 
       <div class="team-grid">
@@ -72,14 +77,14 @@
         <!-- Member 1 -->
         <article class="member-card">
           <div class="member-badge">
-            <img src="./assets/images/team/sign-01.png" alt="Member 1 (placeholder image)" />
+            <img src="./assets/images/team/sign-01.png" alt="Member 1 (placeholder)" />
           </div>
           <div class="member-info">
-            <h3 class="member-name">Mr. Zhang Y., MScSCTA</h3>
-            <p class="member-meta">Role: Data cleaning · Feature engineering · Rule-based baselines</p>
+            <h3 class="member-name">Mr. ZHU J., MScSCTA</h3>
+            <p class="member-meta">Responsibilities: data preprocessing · feature engineering · classic baselines</p>
             <p class="member-desc">
-              Placeholder bio: Responsible for building the preprocessing pipeline (denoising, tokenization, normalization)
-              and implementing interpretable baseline methods to provide a stable reference for model training and error analysis.
+              Responsible for building a reproducible data-processing workflow (deduplication, normalization, splits, and label mapping),
+              and implementing classic baselines such as TF-IDF + linear classifiers, providing stable references for multi-modal fusion and error analysis.
             </p>
             <ul class="member-tags">
               <li>Preprocessing</li><li>Baseline</li><li>Error Analysis</li>
@@ -90,17 +95,17 @@
         <!-- Member 2 -->
         <article class="member-card">
           <div class="member-badge">
-            <img src="./assets/images/team/sign-02.png" alt="Member 2 (placeholder image)" />
+            <img src="./assets/images/team/sign-02.png" alt="Member 2 (placeholder)" />
           </div>
           <div class="member-info">
-            <h3 class="member-name">Ms. Li R., MScSCTA</h3>
-            <p class="member-meta">Role: Model training · Hyperparameter tuning · Evaluation metrics</p>
+            <h3 class="member-name">Mr. TIAN Z., MScSCTA</h3>
+            <p class="member-meta">Responsibilities: transformer fine-tuning · hyperparameter optimization · comparative experiments</p>
             <p class="member-desc">
-              Placeholder bio: Responsible for training multiple ML/deep learning models and running hyperparameter search,
-              while conducting reproducible evaluations using Precision / Recall / F1.
+              Responsible for fine-tuning and training management of pretrained models such as BERT/RoBERTa, conducting comparisons with classic baselines under a unified protocol,
+              and supporting evaluation and reproducibility logging for subsequent fusion models.
             </p>
             <ul class="member-tags">
-              <li>Training</li><li>Tuning</li><li>Metrics</li>
+              <li>Training</li><li>Tuning</li><li>Transformers</li>
             </ul>
           </div>
         </article>
@@ -108,17 +113,19 @@
         <!-- Member 3 -->
         <article class="member-card">
           <div class="member-badge">
-            <img src="./assets/images/team/sign-03.png" alt="Member 3 (placeholder image)" />
+            <img src="./assets/images/team/sign-03.png" alt="Member 3 (placeholder)" />
           </div>
           <div class="member-info">
-            <h3 class="member-name">Mr. Wang J., MScSCTA</h3>
-            <p class="member-meta">Role: Text representation · Vectorization · Feature comparisons</p>
+            <h3 class="member-name">Mr. GUO Z., MScSCTA</h3>
+            <p class="member-meta">Responsibilities: link-context features · structured-signal construction · modality fusion</p>
             <p class="member-desc">
-              Placeholder bio: Responsible for comparing different text representation schemes (e.g., TF-IDF, word embeddings,
-              contextual representations) and analyzing how features affect model performance and generalization.
+              Responsible for extracting cross-platform linkage identifiers (e.g., Tweet–Vine mappings) from archives/index files,
+              building lightweight link-context features (frequency, temporal spread, interaction-density proxies, etc.), and designing context encoding and fusion inputs to quantify “modality lift”.
+              Also responsible for the project website’s information architecture and page implementation (bilingual pages, resource indexing, and content updates),
+              ensuring the online presentation stays aligned with experimental progress and supports academic communication.
             </p>
             <ul class="member-tags">
-              <li>Representation</li><li>Embedding</li><li>Comparison</li>
+              <li>Link Context</li><li>Fusion</li><li>Web</li>
             </ul>
           </div>
         </article>
@@ -126,17 +133,17 @@
         <!-- Member 4 -->
         <article class="member-card">
           <div class="member-badge">
-            <img src="./assets/images/team/sign-04.png" alt="Member 4 (placeholder image)" />
+            <img src="./assets/images/team/sign-04.png" alt="Member 4 (placeholder)" />
           </div>
           <div class="member-info">
-            <h3 class="member-name">Ms. Chen S., MScSCTA</h3>
-            <p class="member-meta">Role: Visualization · Report writing · Result interpretation</p>
+            <h3 class="member-name">Mr. WANG Q., MScSCTA</h3>
+            <p class="member-meta">Responsibilities: evaluation metrics · imbalance analysis · robustness experiments</p>
             <p class="member-desc">
-              Placeholder bio: Responsible for producing visualizations (confusion matrix, threshold curves, etc.)
-              and summarizing experimental findings into a structured report, highlighting limitations and future improvements.
+              Responsible for designing imbalance-aware evaluation and reporting (macro metrics, minority-class recall, etc.),
+              organizing robustness experiments (domain shift / noise perturbations) and error analysis, and producing interpretable conclusions and improvement directions.
             </p>
             <ul class="member-tags">
-              <li>Visualization</li><li>Writing</li><li>Interpretation</li>
+              <li>Evaluation</li><li>Robustness</li><li>Interpretation</li>
             </ul>
           </div>
         </article>
@@ -144,18 +151,17 @@
         <!-- Member 5 -->
         <article class="member-card">
           <div class="member-badge">
-            <img src="./assets/images/team/sign-05.png" alt="Member 5 (placeholder image)" />
+            <img src="./assets/images/team/sign-05.png" alt="Member 5 (placeholder)" />
           </div>
           <div class="member-info">
-            <h3 class="member-name">Mr. Guo T., MScSCTA</h3>
-            <p class="member-meta">Role: Website integration · Reproducibility scripts · Project management</p>
+            <h3 class="member-name">Mr. WEN Y., MScSCTA</h3>
+            <p class="member-meta">Responsibilities: reproducibility scripts · run instructions · version management</p>
             <p class="member-desc">
-              Placeholder bio: Responsible for integrating the project website structure and resource index,
-              maintaining reproducibility scripts and run instructions, and coordinating task allocation and version control
-              to ensure consistent deliverables.
+              Responsible for organizing scripts and run instructions for reproducible experiments, maintaining consistency of versions and file structure,
+              and assisting with team coordination and delivery cadence to ensure traceable and reproducible artifacts.
             </p>
             <ul class="member-tags">
-              <li>Web</li><li>Reproducibility</li><li>Project Mgmt</li>
+              <li>Reproducibility</li><li>Versioning</li><li>Coordination</li>
             </ul>
           </div>
         </article>
@@ -167,12 +173,14 @@
     <section class="section">
       <h2>Research Motivation</h2>
       <p>
-        The motivation of this project is to explore the feasibility of machine learning methods for automated cyberbullying detection,
-        and to analyze the performance and limitations of different models in real-world scenarios.
+        The motivation of this project is to narrow the gap between “course/benchmark tasks” and real smart-city deployment constraints.
+        We focus not only on overall accuracy, but also on stable recognition of minority cyberbullying types under class imbalance and cross-domain shifts,
+        as well as resource constraints and reproducibility requirements at city scale.
       </p>
       <p>
-        Through this project, we hope to deepen our understanding of digital safety in smart-city contexts
-        and provide references for follow-up research or system design.
+        Therefore, we define “multi-modal” in an operational way as: text semantics + structured context + link-context signals.
+        We quantify the contribution of structural social signals through ablation studies (text-only vs. text + link context),
+        emphasizing macro-level metrics and minority-class recall to produce conclusions that better match practical governance needs and academic reproducibility practice.
       </p>
     </section>
 
@@ -181,12 +189,13 @@
   <!-- ================= Footer ================= -->
   <footer class="footer">
     <p>
-      © 2026 CDS553 Course Project · For academic/course research purposes only
+      © 2026 CDS553 Course Project · For academic and course research purposes only
     </p>
   </footer>
 
 </body>
 </html>
+
 
 
 
