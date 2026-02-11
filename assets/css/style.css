@@ -920,3 +920,16 @@ body {
   .page-proposal .proposal-head{ flex-direction: column; align-items: flex-start; }
   .page-proposal .pdf-frame{ height: 72vh; }
 }
+
+/* ================================ */
+/* Page: Project Home (fixed paragraph length) */
+/* ================================ */
+.hero p, 
+.hero .hero-desc, 
+.banner p, 
+.banner .hero-desc {
+  max-width: 920px;   /* can be switched to 760/820/900 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
