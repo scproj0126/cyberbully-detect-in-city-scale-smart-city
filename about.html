@@ -5,24 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us | CDS553 Cyberbullying Detection Project</title>
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <!-- Page-specific additions (if needed) -->
 </head>
+
 <body class="page-about">
 
-  <!-- ================= Navbar ================= -->
+  <!-- ================= Navbar (same structure and links) ================= -->
   <header class="navbar">
     <div class="nav-left">
       <a href="./" class="logo">CDS553 Course Project: Cyberbullying Detection</a>
     </div>
 
     <nav class="nav-right">
-      <a href="./">Project Home</a>
+      <a href="./index.html">Project Home</a>
       <a href="./about.html" class="active">About Us</a>
       <a href="./meetings.html">Meeting Notes</a>
       <a href="./resources.html">Resources</a>
 
-      <!-- Language Switch -->
+      <!-- Language switch -->
       <div class="lang-menu">
         <button class="lang-btn">Language ▾</button>
         <div class="lang-dropdown">
@@ -36,56 +38,141 @@
   <section class="page-header">
     <div class="container">
       <h1>About Us</h1>
-      <p class="subtitle">Learn more about the team and motivation behind this academic project.</p>
+      <p class="subtitle">Learn about the project background, team members, and research motivation.</p>
     </div>
   </section>
 
-
-      <!-- Page Title -->
-    <!-- ================= Main Content ================= -->
+  <!-- ================= Main Content ================= -->
   <main class="container">
-    
+
     <!-- Project Background -->
     <section class="section">
       <h2>Project Background</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        This project focuses on cyberbullying detection on online social platforms. With the rapid development of smart cities
+        and the digital society, online communication has become an essential part of everyday life. However, aggressive language,
+        harassment, and discriminatory expressions can negatively affect individuals’ mental well-being, community climate,
+        and public safety.
       </p>
       <p>
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-        eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-        sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Therefore, we aim to adopt data-driven methods to model and analyze potential bullying signals in online text,
+        providing references for future research and system design.
       </p>
     </section>
 
-    <!-- Team -->
+    <!-- Project Team (card layout + signature placeholders) -->
     <section class="section">
-      <h2>Our Team</h2>
+      <h2>Project Team</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-        Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at
-        nibh elementum imperdiet.
+        This project is completed by a student research group.
       </p>
 
-      <ul class="team-list">
-        <li><strong>Member A</strong> – Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-        <li><strong>Member B</strong> – Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-        <li><strong>Member C</strong> – Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-        <li><strong>Member D</strong> – Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-        <li><strong>Member E</strong> – Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-      </ul>
+      <div class="team-grid">
+
+        <!-- Member 1 -->
+        <article class="member-card">
+          <div class="member-badge">
+            <img src="./assets/images/team/sign-01.png" alt="Member 1 (placeholder image)" />
+          </div>
+          <div class="member-info">
+            <h3 class="member-name">Mr. Zhang Y., MScSCTA</h3>
+            <p class="member-meta">Role: Data cleaning · Feature engineering · Rule-based baselines</p>
+            <p class="member-desc">
+              Placeholder bio: Responsible for building the preprocessing pipeline (denoising, tokenization, normalization)
+              and implementing interpretable baseline methods to provide a stable reference for model training and error analysis.
+            </p>
+            <ul class="member-tags">
+              <li>Preprocessing</li><li>Baseline</li><li>Error Analysis</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Member 2 -->
+        <article class="member-card">
+          <div class="member-badge">
+            <img src="./assets/images/team/sign-02.png" alt="Member 2 (placeholder image)" />
+          </div>
+          <div class="member-info">
+            <h3 class="member-name">Ms. Li R., MScSCTA</h3>
+            <p class="member-meta">Role: Model training · Hyperparameter tuning · Evaluation metrics</p>
+            <p class="member-desc">
+              Placeholder bio: Responsible for training multiple ML/deep learning models and running hyperparameter search,
+              while conducting reproducible evaluations using Precision / Recall / F1.
+            </p>
+            <ul class="member-tags">
+              <li>Training</li><li>Tuning</li><li>Metrics</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Member 3 -->
+        <article class="member-card">
+          <div class="member-badge">
+            <img src="./assets/images/team/sign-03.png" alt="Member 3 (placeholder image)" />
+          </div>
+          <div class="member-info">
+            <h3 class="member-name">Mr. Wang J., MScSCTA</h3>
+            <p class="member-meta">Role: Text representation · Vectorization · Feature comparisons</p>
+            <p class="member-desc">
+              Placeholder bio: Responsible for comparing different text representation schemes (e.g., TF-IDF, word embeddings,
+              contextual representations) and analyzing how features affect model performance and generalization.
+            </p>
+            <ul class="member-tags">
+              <li>Representation</li><li>Embedding</li><li>Comparison</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Member 4 -->
+        <article class="member-card">
+          <div class="member-badge">
+            <img src="./assets/images/team/sign-04.png" alt="Member 4 (placeholder image)" />
+          </div>
+          <div class="member-info">
+            <h3 class="member-name">Ms. Chen S., MScSCTA</h3>
+            <p class="member-meta">Role: Visualization · Report writing · Result interpretation</p>
+            <p class="member-desc">
+              Placeholder bio: Responsible for producing visualizations (confusion matrix, threshold curves, etc.)
+              and summarizing experimental findings into a structured report, highlighting limitations and future improvements.
+            </p>
+            <ul class="member-tags">
+              <li>Visualization</li><li>Writing</li><li>Interpretation</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Member 5 -->
+        <article class="member-card">
+          <div class="member-badge">
+            <img src="./assets/images/team/sign-05.png" alt="Member 5 (placeholder image)" />
+          </div>
+          <div class="member-info">
+            <h3 class="member-name">Mr. Guo T., MScSCTA</h3>
+            <p class="member-meta">Role: Website integration · Reproducibility scripts · Project management</p>
+            <p class="member-desc">
+              Placeholder bio: Responsible for integrating the project website structure and resource index,
+              maintaining reproducibility scripts and run instructions, and coordinating task allocation and version control
+              to ensure consistent deliverables.
+            </p>
+            <ul class="member-tags">
+              <li>Web</li><li>Reproducibility</li><li>Project Mgmt</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
     </section>
 
-    <!-- Motivation -->
+    <!-- Research Motivation -->
     <section class="section">
-      <h2>Motivation</h2>
+      <h2>Research Motivation</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. This project is motivated by
-        increasing concerns surrounding online safety, digital wellbeing, and the
-        role of intelligent systems in smart city environments.
+        The motivation of this project is to explore the feasibility of machine learning methods for automated cyberbullying detection,
+        and to analyze the performance and limitations of different models in real-world scenarios.
+      </p>
+      <p>
+        Through this project, we hope to deepen our understanding of digital safety in smart-city contexts
+        and provide references for follow-up research or system design.
       </p>
     </section>
 
@@ -93,7 +180,9 @@
 
   <!-- ================= Footer ================= -->
   <footer class="footer">
-    <p>© 2026 CDS553 Course Project · For academic/course use only</p>
+    <p>
+      © 2026 CDS553 Course Project · For academic/course research purposes only
+    </p>
   </footer>
 
 </body>
