@@ -66,7 +66,7 @@ body {
 /* Sections */
 .section {
   padding: 3rem 2rem;
-  max-width: 900px;
+  max-width: 1100px;
   margin: auto;
 }
 
@@ -928,7 +928,7 @@ body {
 .hero .hero-desc, 
 .banner p, 
 .banner .hero-desc {
-  max-width: 920px;   /* can be switched to 760/820/900 */
+  max-width: 1100px;   /* can be switched to 760/820/900 */
   margin-left: auto;
   margin-right: auto;
 }
