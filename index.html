@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Home | CDS553 Cyberbullying Detection Project</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Home | CDS553 Cyberbullying Detection Project</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
@@ -19,42 +19,51 @@
       <a href="about.html">About Us</a>
       <a href="meetings.html">Meeting Notes</a>
       <a href="resources.html">Resources</a>
+
       <div class="lang-menu">
-		  <button class="lang-btn" aria-haspopup="true">
-			Language ▾
-		  </button>
-		  <div class="lang-dropdown" role="menu">
-			<a href="./">English</a>
-			<a href="./cn/">中文</a>
-		  </div>
-		</div>
+        <button class="lang-btn" aria-haspopup="true">
+          Language ▾
+        </button>
+        <div class="lang-dropdown" role="menu">
+          <a href="./index.html">English</a>
+          <a href="./cn/index.html">中文</a>
+        </div>
+      </div>
     </nav>
   </header>
 
   <!-- Hero / Background Section -->
   <section class="hero">
     <div class="hero-overlay">
-      <h1>Towards a Multi-Modal and City-Scale Approach</h1>
+      <h1>Toward Multi-Modal and City-Scale Approaches</h1>
       <p class="tagline">
-        Identification and Detection of Cyberbullying in Social Networks within Smart Cities
+        Cyberbullying identification and detection in social networks under smart-city settings
       </p>
       <p class="intro">
-        Cyberbullying is a growing public-safety and wellbeing challenge in smart cities, amplified by the scale and speed of online social networks. This project investigates how machine learning models can identify harmful interactions from social media text (and, when available, other contextual signals), and compares common baseline methods with modern transformer-based approaches. Our goal is to evaluate performance, limitations, and potential improvements to support safer digital communities.
+        In smart-city contexts, aggressive language and cyberbullying on social platforms can spread rapidly and amplify negative impacts.
+        Although text-only models have become relatively mature, real-world city-scale deployment still faces challenges such as cross-platform
+        domain shift, class imbalance, and weak performance on minority bullying types. This project proposes a reproducible multi-modal detection
+        pipeline centered on text semantic representations, while integrating structured context signals (e.g., temporal and interaction statistics)
+        and cross-platform link context (e.g., Tweet–Vine mapping identifiers from the Vine Tweet archives) to capture propagation and association
+        patterns in a lightweight manner. We will systematically compare classic machine learning and pretrained transformer baselines, and quantify
+        the gains brought by the “link-context modality” via ablation studies, with a focus on macro-level metrics and minority-class recall to
+        produce conclusions and practical insights aligned with smart-city governance needs.
       </p>
-		<div class="hero-actions">
-			<a href="./proposal.html" class="btn btn-primary">
-			Read Proposal (PDF)
-			</a>
-			<a href="./resources.html" class="btn btn-secondary">
-			View Resources
-			</a>
-				<a href="https://github.com/scproj0126/cyberbully-detect-in-city-scale-smart-city"
-				class="btn btn-ghost"
-				target="_blank"
-				rel="noopener">
-				Visit GitHub Repo
-			</a>
-		</div>
+
+      <div class="hero-actions">
+        <a href="./proposal.html" class="btn btn-primary">
+          Read Project Proposal (PDF)
+        </a>
+        <a href="./resources.html" class="btn btn-secondary">
+          View Project Resources
+        </a>
+        <a href="https://github.com/scproj0126/cyberbully-detect-in-city-scale-smart-city"
+           class="btn btn-ghost"
+           target="_blank"
+           rel="noopener">
+          Visit GitHub Repository
+        </a>
+      </div>
     </div>
   </section>
 
@@ -62,7 +71,10 @@
   <section class="section">
     <h2>About the Project</h2>
     <p>
-      This section introduces the project objectives, scope, and research questions in concise and academic ways.
+      This project compares classic machine learning methods and transformer baselines under a reproducible evaluation framework, and builds a
+      multi-modal detection workflow by fusing structured context signals with cross-platform link context signals. The study focuses on domain
+      shift and class imbalance, and uses ablation experiments to quantify how the link-context modality improves minority-class detection and
+      overall robustness.
     </p>
   </section>
 
@@ -71,26 +83,61 @@
     <div class="card">
       <h3>Datasets</h3>
       <p>
-        Brief description of datasets used in this project,
-        including sources and data characteristics.
+        We build on public cyberbullying / abusive language datasets and prioritize sources that contain structured context or cross-platform link
+        cues to support multi-modal modeling and city-scale analysis. During data preparation, we perform de-duplication and normalization, define
+        explicit label-mapping rules, and use stratified splits with fixed random seeds to reduce leakage and ensure reproducibility. When Tweet–Vine
+        mappings are available, we extract linkage identifiers to construct the “link-context modality.”
       </p>
     </div>
 
     <div class="card">
       <h3>Models & Methods</h3>
       <p>
-        Overview of machine learning and deep learning models
-        applied in this project.
+        Under a unified evaluation protocol, we establish a baseline suite including classic ML models (e.g., TF-IDF + Logistic Regression / Linear SVM)
+        and transformer text baselines (e.g., fine-tuned BERT / RoBERTa). Building on these, we introduce a multi-modal fusion framework that jointly
+        encodes text representations and structured context signals (temporal features, interaction statistics, etc.), and, when available, incorporates
+        cross-platform link context (e.g., frequency and temporal spread features of URL/video identifiers). A lightweight context encoder and fusion
+        module are used to improve robustness to domain shift and noise.
       </p>
     </div>
 
     <div class="card">
       <h3>Future Work</h3>
       <p>
-        Possible improvements, extensions, and real-world applications
-        of the project.
+        Next steps will focus on “modality lift” and deployment usability. We will conduct ablation studies comparing a text-only model with a fusion
+        model (text + link context), emphasizing improvements in macro-level metrics and minority-class recall. We will also include robustness tests
+        (e.g., noise perturbations and cross-domain evaluation) and statistical reliability analysis to assess stability and produce interpretable
+        conclusions under city-scale settings. If feasible, we will further extend richer conversation-graph features and cross-platform propagation
+        pattern modeling.
       </p>
     </div>
+  </section>
+
+  <!-- Key Contributions -->
+  <section class="section contributions">
+    <h2>Key Contributions</h2>
+    <ul class="contrib-list">
+      <li>
+        <strong>Unified baselines and reproducible evaluation protocol:</strong>
+        Fair comparisons of classic ML and transformer baselines under the same data splits, fixed seeds, and consistent evaluation pipeline.
+      </li>
+      <li>
+        <strong>Link-context modality (Link-context Modality):</strong>
+        Lightweight structured context features built from cross-platform linkage identifiers (e.g., Tweet–Vine link IDs) when available.
+      </li>
+      <li>
+        <strong>Robustness design for city-scale deployment:</strong>
+        Robustness checks targeting domain shift and noise perturbations to reflect practical deployment constraints.
+      </li>
+      <li>
+        <strong>Imbalance-aware evaluation and error analysis:</strong>
+        Reporting macro-level metrics and minority-class recall, complemented by targeted qualitative error analysis.
+      </li>
+      <li>
+        <strong>Modality-lift ablation (Modality Lift Ablation):</strong>
+        Systematic comparison between text-only and “text + link context” fusion models to quantify the value of structural social signals.
+      </li>
+    </ul>
   </section>
 
   <!-- Footer -->
