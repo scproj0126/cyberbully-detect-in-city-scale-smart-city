@@ -922,7 +922,7 @@ body {
 }
 
 /* ================================ */
-/* Page: Project Home (fixed paragraph length) */
+/* Home: fixed paragraph length     */
 /* ================================ */
 .hero p, 
 .hero .hero-desc, 
@@ -932,4 +932,24 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* ========================= */
+/* Home: Key Contributions   */
+/* ========================= */
+
+.contributions .contrib-list{
+  margin: 14px auto 0;
+  padding-left: 1.2em;
+  max-width: 998px;           /* same length to the other section */
+  line-height: 1.8;
+}
+
+.contributions .contrib-list li{
+  margin: 10px 0;
+}
+
+.contributions .contrib-list strong{
+  font-weight: 700;
+}
+
 
