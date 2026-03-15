@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>会议记录 | CDS553 网络欺凌检测项目</title>
   <link rel="stylesheet" href="../assets/css/style.css" />
-
-  <!-- 主样式文件 -->
 </head>
 
 <body class="page-meetings">
+
   <!-- Navigation -->
   <header class="navbar">
     <div class="nav-left">
-      <span class="logo">CDS553课程项目：网络欺凌检测</span>
+      <span class="logo">CDS553 课程项目：网络欺凌检测</span>
     </div>
     <nav class="nav-right">
-      <a href="../cn/index.html">项目主页</a>
-      <a href="../cn/about.html">关于我们</a>
-      <a href="../cn/meetings.html">会议记录</a>
-      <a href="../cn/resources.html">项目资源</a>
+      <a href="index.html">项目主页</a>
+      <a href="research.html">方法与结果</a>
+      <a href="app.html">应用原型</a>
+      <a href="about.html">关于我们</a>
+      <a href="meetings.html" class="active">会议记录</a>
+      <a href="resources.html">参考资料</a>
 
       <div class="lang-menu">
-        <button class="lang-btn" aria-haspopup="true">
+        <button class="lang-btn" aria-haspopup="true" aria-expanded="false">
           语言 ▾
         </button>
         <div class="lang-dropdown" role="menu">
@@ -36,28 +37,26 @@
   <section class="page-header">
     <div class="container">
       <h1>会议记录</h1>
-      <p class="subtitle">按教学周汇总会议材料（视频记录、PPT、讨论纪要等）。若某周暂无资料，按钮会跳转到 GitHub 的 meetings 文件夹，便于后续补充。</p>
+      <p class="subtitle">按教学周整理（含录音、幻灯片与讨论记录）。暂无材料的周次仍链接至 GitHub 会议文件夹，后续更新后可直接访问。</p>
     </div>
   </section>
-
 
   <main class="container">
     <section class="week-board">
       <div class="board-title">
         <div class="left">📌 每周会议记录</div>
-        <div class="right" id="currentLabel">当前周：—</div>
+        <div class="right" id="currentLabel">当前周次：—</div>
       </div>
 
       <ul class="week-list" id="weekList"></ul>
-
     </section>
   </main>
 
   <script>
-    // Edit here for the meeting file folder path
+    // 会议文件夹路径
     const MEETINGS_URL = "https://github.com/scproj0126/cyberbully-detect-in-city-scale-smart-city/tree/main/meetings";
 
-    // Week date setting
+    // 各周日期设置
     const weeks = [
       { week: 1,  start: "2026-01-12", end: "2026-01-18" },
       { week: 2,  start: "2026-01-19", end: "2026-01-25" },
@@ -106,7 +105,7 @@
 
       let currentWeekNum = null;
 
-      // first pass: find current week
+      // 第一次遍历：确定当前周次
       for (const w of weeks){
         const status = getStatus(today, w);
         if (status === "current"){
@@ -115,16 +114,16 @@
         }
       }
 
-      currentLabel.textContent = currentWeekNum ? `当前周：第 ${currentWeekNum} 周` : "当前周：已完成（共 16 周）";
+      currentLabel.textContent = currentWeekNum ? `当前周次：第 ${currentWeekNum} 周` : "当前周次：已结束（共 16 周）";
 
-      // render
+      // 渲染列表
       list.innerHTML = "";
       for (const w of weeks){
         const status = getStatus(today, w);
 
-        const badgeText = status === "done" ? "已完成"
+        const badgeText = status === "done"    ? "已完成"
                         : status === "current" ? "本周"
-                        : "未开始";
+                        : "即将开始";
 
         const li = document.createElement("li");
         li.className = "week-card" + (status === "current" ? " current" : "");
@@ -136,7 +135,7 @@
           </div>
           <div class="week-actions">
             <a class="btn ${status === "current" ? "primary" : ""}" href="${MEETINGS_URL}" target="_blank" rel="noopener noreferrer">
-              浏览会议文件 ↗
+              查看会议文件 ↗
             </a>
           </div>
         `;
@@ -146,18 +145,9 @@
     })();
   </script>
 
-  <!-- ================= 页脚 ================= -->
+  <!-- ================= Footer ================= -->
   <footer class="footer">
-    <p>
-      © 2026 CDS553课程项目 · 仅用于学术与课程研究目的
-    </p>
+    <p>© 2026 CDS553 课程项目 · 仅供学术与课程研究使用</p>
   </footer>
-  
 </body>
 </html>
-
-
-
-
-
-

@@ -6,22 +6,22 @@
   <title>Home | CDS553 Cyberbullying Detection Project</title>
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
+<body class="page-home">
 
-<body>
-
-  <!-- Navigation -->
   <header class="navbar">
     <div class="nav-left">
       <span class="logo">CDS553 Course Project: Cyberbullying Detection</span>
     </div>
     <nav class="nav-right">
-      <a href="index.html">Project Home</a>
+            <a href="index.html" class="active">Project Home</a>
+      <a href="research.html">Methods &amp; Results</a>
+      <a href="app.html">App Prototype</a>
       <a href="about.html">About Us</a>
       <a href="meetings.html">Meeting Notes</a>
       <a href="resources.html">Resources</a>
 
-      <div class="lang-menu">
-        <button class="lang-btn" aria-haspopup="true">
+<div class="lang-menu">
+        <button class="lang-btn" aria-haspopup="true" aria-expanded="false">
           Language ▾
         </button>
         <div class="lang-dropdown" role="menu">
@@ -32,31 +32,32 @@
     </nav>
   </header>
 
-  <!-- Hero / Background Section -->
-  <section class="hero">
+  <section class="hero hero-home">
     <div class="hero-overlay">
+      <p class="eyebrow">CitySafe · CDS553 course project</p>
       <h1>Toward Multi-Modal and City-Scale Approaches</h1>
       <p class="tagline">
         Cyberbullying identification and detection in social networks under smart-city settings
       </p>
       <p class="intro">
-        In smart-city contexts, aggressive language and cyberbullying on social platforms can spread rapidly and amplify negative impacts.
-        Although text-only models have become relatively mature, real-world city-scale deployment still faces challenges such as cross-platform
-        domain shift, class imbalance, and weak performance on minority bullying types. This project proposes a reproducible multi-modal detection
-        pipeline centered on text semantic representations, while integrating structured context signals (e.g., temporal and interaction statistics)
-        and cross-platform link context (e.g., Tweet–Vine mapping identifiers from the Vine Tweet archives) to capture propagation and association
-        patterns in a lightweight manner. We will systematically compare classic machine learning and pretrained transformer baselines, and quantify
-        the gains brought by the “link-context modality” via ablation studies, with a focus on macro-level metrics and minority-class recall to
-        produce conclusions and practical insights aligned with smart-city governance needs.
+        CitySafe is our course project on cyberbullying detection in social networks. We are exploring how text signals,
+        contextual clues, and linked media can be brought into one clearer workflow for screening and follow-up.
+      </p>
+      <p class="intro intro-secondary">
+        Alongside the model work, we built a small interface concept to show how a user might submit a case, read a result,
+        save evidence, and move flagged items into moderator review.
       </p>
 
+      <div class="hero-pills">
+        <span class="pill">Text, context, and media</span>
+        <span class="pill">Prototype screens</span>
+        <span class="pill">Moderator workflow</span>
+      </div>
+
       <div class="hero-actions">
-        <a href="./proposal.html" class="btn btn-primary">
-          Read Project Proposal (PDF)
-        </a>
-        <a href="./resources.html" class="btn btn-secondary">
-          View Project Resources
-        </a>
+        <a href="./research.html" class="btn btn-primary">View Methods &amp; Results</a>
+        <a href="./proposal.html" class="btn btn-dark">Read Project Proposal</a>
+        <a href="./app.html" class="btn btn-secondary">Explore App Prototype</a>
         <a href="https://github.com/scproj0126/cyberbully-detect-in-city-scale-smart-city"
            class="btn btn-ghost"
            target="_blank"
@@ -67,93 +68,163 @@
     </div>
   </section>
 
-  <!-- About Project -->
-  <section class="section">
-    <h2>About the Project</h2>
-    <p>
-      This project compares classic machine learning methods and transformer baselines under a reproducible evaluation framework, and builds a
-      multi-modal detection workflow by fusing structured context signals with cross-platform link context signals. The study focuses on domain
-      shift and class imbalance, and uses ablation experiments to quantify how the link-context modality improves minority-class detection and
-      overall robustness.
-    </p>
-  </section>
+  <section class="section overview-section">
+    <div class="two-col">
+      <div>
+        <h2>Project Overview</h2>
+        <p>
+          CitySafe bridges the gap between cyberbullying detection models and actionable smart-city governance.
+        </p>
+        <p>
+          The workflow begins with a message or screenshot check, moves to a readable result and evidence summary,
+          and ends with moderator-side review for higher-risk cases.
+        </p>
+      </div>
 
-  <!-- Three Cards -->
-  <section class="cards">
-    <div class="card">
-      <h3>Datasets</h3>
-      <p>
-        We build on public cyberbullying / abusive language datasets and prioritize sources that contain structured context or cross-platform link
-        cues to support multi-modal modeling and city-scale analysis. During data preparation, we perform de-duplication and normalization, define
-        explicit label-mapping rules, and use stratified splits with fixed random seeds to reduce leakage and ensure reproducibility. When Tweet–Vine
-        mappings are available, we extract linkage identifiers to construct the “link-context modality.”
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Models & Methods</h3>
-      <p>
-        Under a unified evaluation protocol, we establish a baseline suite including classic ML models (e.g., TF-IDF + Logistic Regression / Linear SVM)
-        and transformer text baselines (e.g., fine-tuned BERT / RoBERTa). Building on these, we introduce a multi-modal fusion framework that jointly
-        encodes text representations and structured context signals (temporal features, interaction statistics, etc.), and, when available, incorporates
-        cross-platform link context (e.g., frequency and temporal spread features of URL/video identifiers). A lightweight context encoder and fusion
-        module are used to improve robustness to domain shift and noise.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Future Work</h3>
-      <p>
-        Next steps will focus on “modality lift” and deployment usability. We will conduct ablation studies comparing a text-only model with a fusion
-        model (text + link context), emphasizing improvements in macro-level metrics and minority-class recall. We will also include robustness tests
-        (e.g., noise perturbations and cross-domain evaluation) and statistical reliability analysis to assess stability and produce interpretable
-        conclusions under city-scale settings. If feasible, we will further extend richer conversation-graph features and cross-platform propagation
-        pattern modeling.
-      </p>
+      <div class="info-panel">
+        <h3>Explore CitySafe</h3>
+        <ul class="clean-list">
+          <li>Project background and overall direction</li>
+          <li>Showcase video on the homepage</li>
+          <li>Methods, training pipeline, and current results</li>
+          <li>Mobile prototype screens and app demo</li>
+          <li>Review flow for moderators</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- Key Contributions -->
+  <section class="section video-section section-alt">
+    <div class="section-head">
+      <h2>Project Showcase Video</h2>
+      <p>
+        A short video introducing the CitySafe idea, the interface direction, and the smart-city setting behind the project.
+      </p>
+    </div>
+
+    <div class="video-shell">
+      <video class="video-frame" controls preload="metadata">
+        <source src="./assets/video/promo_video.mp4" type="video/mp4" />
+        Your browser does not support HTML5 video.
+      </video>
+    </div>
+  </section>
+
+  <section class="section app-highlight">
+    <div class="section-head left-align">
+      <h2>App Prototype</h2>
+      <p>
+        These screens show one possible CitySafe interface, from a quick safety check to a result page,
+        evidence saving, and moderator review.
+      </p>
+    </div>
+
+    <div class="app-highlight-grid">
+      <div class="app-copy">
+        <p>
+          Beyond benchmarks and metrics, CitySafe translates detection models into an actionable workflow.
+        </p>
+        <p>
+          The prototype follows a clear sequence: submit a case, view the result, save the evidence,
+          and send urgent items into moderator review.
+        </p>
+        <a href="./app.html" class="btn btn-dark">Open App Prototype Page</a>
+      </div>
+
+      <div class="preview-grid">
+        <figure class="screen-card">
+          <div class="phone-frame preview-shot">
+            <img src="./assets/images/input_page.png" alt="CitySafe mobile input screen" class="phone-screenshot" />
+          </div>
+          <figcaption>Safety check</figcaption>
+        </figure>
+        <figure class="screen-card">
+          <div class="phone-frame preview-shot">
+            <img src="./assets/images/result_page.png" alt="CitySafe mobile result screen" class="phone-screenshot" />
+          </div>
+          <figcaption>Result view</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards feature-cards">
+    <div class="card feature-card">
+      <h3>Safety Check</h3>
+      <p>
+        A user can paste a message, choose a platform, and run a quick check without dealing with a complicated form.
+      </p>
+    </div>
+
+    <div class="card feature-card">
+      <h3>Result Summary</h3>
+      <p>
+        The result screen combines a visible risk gauge with short notes, making the output easier to read and easier to save.
+      </p>
+    </div>
+
+    <div class="card feature-card">
+      <h3>Moderator Review</h3>
+      <p>
+        Flagged cases can be placed in a queue so reviewers can sort, inspect, and respond to higher-risk items first.
+      </p>
+    </div>
+  </section>
+
   <section class="section contributions">
-    <h2>Key Contributions</h2>
+    <h2>Project Focus</h2>
     <ul class="contrib-list">
-      <li>
-        <strong>Unified baselines and reproducible evaluation protocol:</strong>
-        Fair comparisons of classic ML and transformer baselines under the same data splits, fixed seeds, and consistent evaluation pipeline.
-      </li>
-      <li>
-        <strong>Link-context modality (Link-context Modality):</strong>
-        Lightweight structured context features built from cross-platform linkage identifiers (e.g., Tweet–Vine link IDs) when available.
-      </li>
-      <li>
-        <strong>Robustness design for city-scale deployment:</strong>
-        Robustness checks targeting domain shift and noise perturbations to reflect practical deployment constraints.
-      </li>
-      <li>
-        <strong>Imbalance-aware evaluation and error analysis:</strong>
-        Reporting macro-level metrics and minority-class recall, complemented by targeted qualitative error analysis.
-      </li>
-      <li>
-        <strong>Modality-lift ablation (Modality Lift Ablation):</strong>
-        Systematic comparison between text-only and “text + link context” fusion models to quantify the value of structural social signals.
-      </li>
+      <li><strong>Detection direction:</strong> exploring how text, context, and linked media can support cyberbullying analysis.</li>
+      <li><strong>Workflow design:</strong> showing a path from user-side checking to evidence saving and moderator review.</li>
+      <li><strong>Presentation:</strong> combining a showcase video on the homepage with a dedicated app prototype page.</li>
     </ul>
   </section>
 
-  <!-- Footer -->
+
+  <section class="section section-alt home-research">
+    <div class="section-head">
+      <h2>Methods &amp; Results Snapshot</h2>
+      <p>
+        Explore our unified pipeline, model comparisons, and audited results in detail.
+      </p>
+    </div>
+
+    <div class="research-card-grid">
+      <article class="research-card">
+        <h3>System Inputs</h3>
+        <p>
+          The current study combines text records, structured context, linked short-video features,
+          and optional subtitle or ASR text when available.
+        </p>
+      </article>
+
+      <article class="research-card">
+        <h3>Training Pipeline</h3>
+        <p>
+          The package now follows a clearer prepare-train-predict structure with split control,
+          saved artifacts, threshold selection, and optional calibration.
+        </p>
+      </article>
+
+      <article class="research-card">
+        <h3>Current Best Result</h3>
+        <p>
+          On the full suite, the strongest overall setting in the current audit is the linear text + context model,
+          with 0.776 macro-F1, 0.792 harmful recall, and 0.532 AUPRC.
+        </p>
+      </article>
+    </div>
+
+    <div class="center-actions">
+      <a href="./research.html" class="btn btn-dark">Open Methods &amp; Results</a>
+      <a href="./proposal.html" class="btn btn-outline-dark">Open Proposal PDF</a>
+    </div>
+  </section>
+
   <footer class="footer">
     <p>Contact: sctalnproj0126@proton.me</p>
     <p>© 2026 CDS553 Course Project | Lingnan University</p>
   </footer>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
-

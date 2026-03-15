@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Methods &amp; Results | CDS553 Cyberbullying Detection Project</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body class="page-research">
+
+  <header class="navbar">
+    <div class="nav-left">
+      <span class="logo">CDS553 Course Project: Cyberbullying Detection</span>
+    </div>
+    <nav class="nav-right">
+            <a href="index.html">Project Home</a>
+      <a href="research.html" class="active">Methods &amp; Results</a>
+      <a href="app.html">App Prototype</a>
+      <a href="about.html">About Us</a>
+      <a href="meetings.html">Meeting Notes</a>
+      <a href="resources.html">Resources</a>
+
+<div class="lang-menu">
+        <button class="lang-btn" aria-haspopup="true" aria-expanded="false">
+          Language ▾
+        </button>
+        <div class="lang-dropdown" role="menu">
+          <a href="./research.html">English</a>
+          <span class="lang-disabled">中文 (coming soon)</span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="page-header research-header">
+    <div class="container">
+      <h1>Methods &amp; Results</h1>
+      <p class="subtitle">
+        A compact technical view of the current CitySafe pipeline, the evaluation setting, and the main findings from the audited run.
+      </p>
+    </div>
+  </section>
+
+  <section class="section research-intro">
+    <div class="two-col">
+      <div>
+        <h2>Technical Overview</h2>
+        <p>
+          CitySafe is built around a practical comparison ladder. We start from text baselines, add structured context,
+          and then study linked media on the smaller linked subset. The current package supports text records, context features,
+          linked short-video features, and optional subtitle or ASR text when it is available.
+        </p>
+        <p>
+          At this stage, the clearest gain comes from context-aware modelling on the full suite. Linked media is part of the study,
+          but the smaller linked subset means those findings are still earlier and more tentative than the larger full-suite results.
+        </p>
+      </div>
+
+      <div class="info-panel at-a-glance">
+        <div>
+          <h3>At a glance</h3>
+          <ul class="clean-list">
+            <li>Current prototype stage: TRL 4</li>
+            <li>Best current full-suite setting: linear text + context</li>
+            <li>Active video branch: sparse keyframes + ResNet-50 + Bi-GRU</li>
+            <li>Reserved text pathway: 768-dim interface awaiting semantic encoder integration</li>
+          </ul>
+        </div>
+        <div>
+          <a href="./proposal.html" class="btn btn-dark">Open Proposal PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt research-results">
+    <div class="section-head">
+      <h2>Current Best Result</h2>
+      <p>
+        On the large full suite, the strongest overall setting in the current audit is the linear text + context model.
+      </p>
+    </div>
+
+    <div class="metric-strip">
+      <article class="metric-box">
+        <div class="label">Selected model</div>
+        <div class="value">lr_text_context</div>
+        <div class="sub">linear text + context</div>
+      </article>
+      <article class="metric-box">
+        <div class="label">Macro-F1</div>
+        <div class="value">0.776</div>
+        <div class="sub">best overall full-suite balance</div>
+      </article>
+      <article class="metric-box">
+        <div class="label">Harmful recall</div>
+        <div class="value">0.792</div>
+        <div class="sub">keeps recall high for moderation support</div>
+      </article>
+      <article class="metric-box">
+        <div class="label">AUPRC</div>
+        <div class="value">0.532</div>
+        <div class="sub">stronger than the text-only linear baseline</div>
+      </article>
+    </div>
+
+    <div class="results-table-wrap">
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Accuracy</th>
+            <th>Macro-F1</th>
+            <th>Harmful recall</th>
+            <th>AUPRC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Logistic regression (lr_text)</td>
+            <td>0.944</td>
+            <td>0.559</td>
+            <td>0.919</td>
+            <td>0.123</td>
+          </tr>
+          <tr>
+            <td>Neural text head (mlp_text)</td>
+            <td>0.991</td>
+            <td>0.660</td>
+            <td>0.413</td>
+            <td>0.275</td>
+          </tr>
+          <tr>
+            <td>Neural text + context (mlp_text_context)</td>
+            <td>0.993</td>
+            <td>0.754</td>
+            <td>0.708</td>
+            <td>0.538</td>
+          </tr>
+          <tr>
+            <td>Linear text + context (lr_text_context)</td>
+            <td>0.993</td>
+            <td>0.776</td>
+            <td>0.792</td>
+            <td>0.532</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="results-note">
+      In plain terms, context is doing the most reliable work in the present audit. The linked-media branch is still useful to study,
+      but it should be read more cautiously because that subset is much smaller.
+    </p>
+  </section>
+
+  <section class="section research-block">
+    <div class="section-head">
+      <h2>System Overview</h2>
+      <p>
+        The system is structured as a modular pipeline, so data preparation, training, and prediction can be rerun under one reproducible setup.
+      </p>
+    </div>
+
+    <div class="research-grid">
+      <article class="research-feature">
+        <h3>Inputs</h3>
+        <p>
+          The package works with text, label, platform, timestamp, group or session identifiers, video paths,
+          and optional subtitle or ASR text where available.
+        </p>
+      </article>
+
+      <article class="research-feature">
+        <h3>Context branch</h3>
+        <p>
+          Structured features such as reply activity, mention count, platform information, and coarse time bins
+          are used to give the model more than local text alone.
+        </p>
+      </article>
+
+      <article class="research-feature">
+        <h3>Linked media branch</h3>
+        <p>
+          On the linked subset, text, context, and short-video features can be fused through a gated multimodal head,
+          with missing-modality handling kept in mind.
+        </p>
+      </article>
+
+      <article class="research-feature">
+        <h3>Outputs</h3>
+        <p>
+          The system produces risk scores, selected thresholds, confidence-oriented summaries, CSV exports,
+          and visual analysis charts that are easier to connect to later review.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section-alt research-block">
+    <div class="section-head">
+      <h2>Training and Evaluation Pipeline</h2>
+      <p>
+        Our pipeline enforces strict data splits, saved artifacts, and shared evaluation logic across model families.
+      </p>
+    </div>
+
+    <div class="pipeline-grid">
+      <article class="pipeline-step">
+        <span class="step-no">1</span>
+        <h3>Prepare</h3>
+        <p>
+          Data is written into a manifest-style format. Cleaning, label mapping, media linking,
+          and group-aware train/validation/test splitting are handled before model training.
+        </p>
+      </article>
+
+      <article class="pipeline-step">
+        <span class="step-no">2</span>
+        <h3>Train</h3>
+        <p>
+          The current comparison includes linear and neural text baselines, context-aware variants,
+          and linked-media runs on the smaller linked subset.
+        </p>
+      </article>
+
+      <article class="pipeline-step">
+        <span class="step-no">3</span>
+        <h3>Select operating points</h3>
+        <p>
+          Threshold selection and optional temperature calibration are included because probability quality matters,
+          not only the raw label after a fixed 0.5 cutoff.
+        </p>
+      </article>
+
+      <article class="pipeline-step">
+        <span class="step-no">4</span>
+        <h3>Predict and review</h3>
+        <p>
+          The same package supports batch prediction, saved reports, and visual analytics,
+          linking model output to the review flow shown elsewhere on the site.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section research-status">
+    <div class="two-col">
+      <div>
+        <h2>Implementation Status</h2>
+        <p>
+          The current invention disclosure records CitySafe at TRL 4. The active video branch already uses sparse keyframe sampling,
+          a pretrained ResNet-50 backbone, and Bi-GRU temporal modelling. Batch inference, visual analytics,
+          and the broader system architecture have also been completed for the present prototype stage.
+        </p>
+        <p>
+          One important open item is the text branch. The reserved 768-dim text pathway is already in place,
+          but it is still waiting for genuine semantic encoder integration. This is one of the main upgrades planned for the next round.
+        </p>
+      </div>
+
+      <div class="info-panel">
+        <h3>Next steps</h3>
+        <ul class="clean-list">
+          <li>Connect the reserved text pathway to a semantic encoder</li>
+          <li>Improve minority-class recall through focal loss or oversampling</li>
+          <li>Clean metadata to strengthen video-text linkage</li>
+          <li>Implement the Evidence Kit, audit log, and RBAC modules</li>
+          <li>Continue privacy and latency work for later deployment discussion</li>
+        </ul>
+        <a href="./app.html" class="btn btn-dark">View App Prototype</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Contact: sctalnproj0126@proton.me</p>
+    <p>© 2026 CDS553 Course Project | Lingnan University</p>
+  </footer>
+
+</body>
+</html>

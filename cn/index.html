@@ -1,60 +1,61 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>项目主页 | CDS553 网络欺凌检测项目</title>
+  <title>首页 | CDS553 网络欺凌检测项目</title>
   <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
+<body class="page-home">
 
-<body>
-
-  <!-- Navigation -->
   <header class="navbar">
     <div class="nav-left">
-      <span class="logo">CDS553课程项目：网络欺凌检测</span>
+      <span class="logo">CDS553 课程项目：网络欺凌检测</span>
     </div>
     <nav class="nav-right">
-      <a href="../cn/index.html">项目主页</a>
-      <a href="../cn/about.html">关于我们</a>
-      <a href="../cn/meetings.html">会议记录</a>
-      <a href="../cn/resources.html">项目资源</a>
+      <a href="index.html" class="active">项目主页</a>
+      <a href="research.html">方法与结果</a>
+      <a href="app.html">应用原型</a>
+      <a href="about.html">关于我们</a>
+      <a href="meetings.html">会议记录</a>
+      <a href="resources.html">参考资料</a>
 
       <div class="lang-menu">
-        <button class="lang-btn" aria-haspopup="true">
+        <button class="lang-btn" aria-haspopup="true" aria-expanded="false">
           语言 ▾
         </button>
         <div class="lang-dropdown" role="menu">
-          <a href="../">English</a>
-          <a href="./">中文</a>
+          <a href="./index.html">English</a>
+          <a href="./cn/index.html">中文</a>
         </div>
       </div>
     </nav>
   </header>
 
-  <!-- Hero / Background Section -->
-  <section class="hero">
+  <section class="hero hero-home">
     <div class="hero-overlay">
-      <h1>迈向多模态与城市尺度的方法</h1>
+      <p class="eyebrow">CitySafe · CDS553 课程项目</p>
+      <h1>迈向多模态与城市级网络欺凌检测方法</h1>
       <p class="tagline">
-        智慧城市背景下社交网络中的网络欺凌识别与检测
+        面向智慧城市环境下社交网络中的网络欺凌识别与检测
       </p>
       <p class="intro">
-        在智慧城市语境下，网络社交平台中的攻击性言论与网络欺凌会快速传播并放大其负面影响。
-        尽管现有文本模型已经较为成熟，但在真实城市规模部署中仍面临跨平台领域差异（domain shift）、
-        类别不平衡与少数类型识别不足等挑战。本项目提出一套可复现的多模态检测流程：以文本语义表征为核心，
-        并融合结构化上下文信号（如时间与互动统计）以及跨平台链接上下文（例如 Vine Tweet 存档中的 Tweet–Vine 映射标识符），
-        从而以轻量方式刻画内容的传播与关联模式。我们将系统性对比经典机器学习与预训练 Transformer 基线，
-        并通过消融实验量化“链接上下文模态”带来的增益，重点关注宏平均指标与少数类召回，形成更贴近智能城市治理需求的结论与实践参考。
+        CitySafe 是我们关于社交网络网络欺凌检测的课程项目。我们正在探索如何将文本信号、上下文线索与关联媒体整合为一套更清晰的筛查与跟进工作流程。
+      </p>
+      <p class="intro intro-secondary">
+        在模型研究之外，我们还构建了一个小型界面概念原型，展示用户如何提交案例、查阅结果、保存证据，并将标记内容移交至审核员审查。
       </p>
 
+      <div class="hero-pills">
+        <span class="pill">文本、上下文与媒体</span>
+        <span class="pill">原型界面</span>
+        <span class="pill">审核员工作流</span>
+      </div>
+
       <div class="hero-actions">
-        <a href="../cn/proposal.html" class="btn btn-primary">
-          阅读项目提案（PDF）
-        </a>
-        <a href="./resources.html" class="btn btn-secondary">
-          查看项目资源
-        </a>
+        <a href="./research.html" class="btn btn-primary">查看方法与结果</a>
+        <a href="./proposal.html" class="btn btn-dark">阅读项目提案</a>
+        <a href="./app.html" class="btn btn-secondary">探索应用原型</a>
         <a href="https://github.com/scproj0126/cyberbully-detect-in-city-scale-smart-city"
            class="btn btn-ghost"
            target="_blank"
@@ -65,94 +66,156 @@
     </div>
   </section>
 
-  <!-- About Project -->
-  <section class="section">
-    <h2>关于本项目</h2>
-    <p>
-      本项目在可复现的评测框架下比较经典机器学习与 Transformer 基线模型，
-      并融合结构化上下文与跨平台链接上下文信号，构建多模态检测流程。
-      研究聚焦领域迁移与类别不平衡问题，通过消融实验量化链接上下文模态对少数类识别与整体鲁棒性的提升效果。
-    </p>
-  </section>
+  <section class="section overview-section">
+    <div class="two-col">
+      <div>
+        <h2>项目概述</h2>
+        <p>
+          CitySafe 致力于弥合网络欺凌检测模型与可落地的智慧城市治理之间的鸿沟。
+        </p>
+        <p>
+          工作流程从消息或截图的检测开始，进入可读的结果与证据摘要，最终由审核员对高风险案例进行复核。
+        </p>
+      </div>
 
-  <!-- Three Cards -->
-  <section class="cards">
-    <div class="card">
-      <h3>数据集</h3>
-      <p>
-        本项目以公开的网络欺凌/攻击性语言数据集为基础，并优先选择包含结构化上下文或跨平台链接线索的数据来源，
-        以支持多模态建模与城市尺度分析。在数据准备阶段，我们将执行去重与规范化处理、明确的标签映射规则，
-        并采用固定随机种子进行分层划分，以减少信息泄漏并确保实验可复现。同时，若数据中存在 Tweet–Vine 等跨平台映射，
-        我们将提取链接标识符用于构建“链接上下文模态”。
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>模型与方法</h3>
-      <p>
-        我们在统一评测协议下构建基线体系：经典机器学习模型（如 TF-IDF + Logistic Regression/Linear SVM）与文本 Transformer 基线
-        （如 BERT/RoBERTa 微调）。在此基础上，引入多模态融合框架：将文本表征与结构化上下文信号（时间特征、交互统计等）共同编码，
-        并在可用时加入跨平台链接上下文（例如 URL/视频标识符的频次与时间扩散特征），
-        通过轻量级上下文编码器与融合模块提升对领域迁移与噪声的鲁棒性。
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>未来工作</h3>
-      <p>
-        后续工作将围绕“模态增益（modality lift）”与部署可用性展开：通过消融实验定量比较文本单模态与“文本 + 链接上下文”的性能差异，
-        重点关注宏平均指标与少数类召回的改善；同时加入稳健性测试（如噪声扰动、跨域评估）与统计可靠性分析，
-        以评估模型在城市尺度场景下的稳定性与可解释结论。若条件允许，将进一步扩展更丰富的对话图结构特征与跨平台传播模式建模。
-      </p>
+      <div class="info-panel">
+        <h3>探索 CitySafe</h3>
+        <ul class="clean-list">
+          <li>项目背景与整体方向</li>
+          <li>主页展示视频</li>
+          <li>方法、训练流程与当前结果</li>
+          <li>移动端原型界面与应用演示</li>
+          <li>审核员复核流程</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-    <!-- Key Contributions -->
+  <section class="section video-section section-alt">
+    <div class="section-head">
+      <h2>项目展示视频</h2>
+      <p>
+        一段简短的视频，介绍 CitySafe 的核心理念、界面方向以及项目背后的智慧城市应用场景。
+      </p>
+    </div>
+
+    <div class="video-shell">
+      <video class="video-frame" controls preload="metadata">
+        <source src="../assets/video/promo_video.mp4" type="video/mp4" />
+        您的浏览器不支持 HTML5 视频。
+      </video>
+    </div>
+  </section>
+
+  <section class="section app-highlight">
+    <div class="section-head left-align">
+      <h2>应用原型</h2>
+      <p>
+        以下界面展示了 CitySafe 的一种可能形态，涵盖快速安全检测、结果页面、证据保存以及审核员复核等环节。
+      </p>
+    </div>
+
+    <div class="app-highlight-grid">
+      <div class="app-copy">
+        <p>
+          CitySafe 不止于基准测试与指标数据，更将检测模型转化为可操作的工作流程。
+        </p>
+        <p>
+          原型遵循清晰的操作路径：提交案例、查看结果、保存证据，再将紧急内容移入审核员队列。
+        </p>
+        <a href="./app.html" class="btn btn-dark">打开应用原型页面</a>
+      </div>
+
+      <div class="preview-grid">
+        <figure class="screen-card">
+          <div class="phone-frame preview-shot">
+            <img src="../assets/images/input_page.png" alt="CitySafe 移动端输入界面" class="phone-screenshot" />
+          </div>
+          <figcaption>安全检测</figcaption>
+        </figure>
+        <figure class="screen-card">
+          <div class="phone-frame preview-shot">
+            <img src="../assets/images/result_page.png" alt="CitySafe 移动端结果界面" class="phone-screenshot" />
+          </div>
+          <figcaption>结果查看</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards feature-cards">
+    <div class="card feature-card">
+      <h3>安全检测</h3>
+      <p>
+        用户可粘贴消息内容、选择平台，无需填写复杂表单即可快速完成检测。
+      </p>
+    </div>
+
+    <div class="card feature-card">
+      <h3>结果摘要</h3>
+      <p>
+        结果界面将可视化风险仪表盘与简短说明结合呈现，使输出内容更易阅读、更便于保存。
+      </p>
+    </div>
+
+    <div class="card feature-card">
+      <h3>审核员复核</h3>
+      <p>
+        被标记的案例可进入队列，供审核员按优先级排序、逐一查看并优先处理高风险内容。
+      </p>
+    </div>
+  </section>
+
   <section class="section contributions">
-    <h2>项目贡献</h2>
+    <h2>项目重点</h2>
     <ul class="contrib-list">
-      <li>
-        <strong>统一基线与可复现实验协议：</strong>
-        在同一数据划分、固定随机种子与一致的评估流程下，对经典 ML 与 Transformer 基线进行公平对比。
-      </li>
-      <li>
-        <strong>链接上下文多模态（Link-context Modality）：</strong>
-        在可用时利用跨平台映射标识符（如 Tweet–Vine 链接 ID）构建轻量的结构化上下文特征。
-      </li>
-      <li>
-        <strong>面向城市尺度的鲁棒性设计：</strong>
-        围绕领域迁移（domain shift）与噪声扰动开展稳健性检查，更贴近实际部署约束。
-      </li>
-      <li>
-        <strong>不平衡友好的评估与误差分析：</strong>
-        重点报告宏平均指标、少数类召回，并进行针对性错误案例分析。
-      </li>
-      <li>
-        <strong>模态增益消融（Modality Lift Ablation）：</strong>
-        系统比较文本单模态与“文本 + 链接上下文”融合模型，量化结构化社交信号带来的收益。
-      </li>
+      <li><strong>检测方向：</strong>探索如何利用文本、上下文与关联媒体支持网络欺凌分析。</li>
+      <li><strong>流程设计：</strong>展示从用户端检测到证据保存再到审核员复核的完整路径。</li>
+      <li><strong>成果呈现：</strong>将主页展示视频与专属应用原型页面相结合，全面呈现项目成果。</li>
     </ul>
   </section>
 
-  <!-- Footer -->
+  <section class="section section-alt home-research">
+    <div class="section-head">
+      <h2>方法与结果概览</h2>
+      <p>
+        深入了解我们的统一流程、模型对比与经过审核的详细结果。
+      </p>
+    </div>
+
+    <div class="research-card-grid">
+      <article class="research-card">
+        <h3>系统输入</h3>
+        <p>
+          当前研究融合了文本记录、结构化上下文、关联短视频特征，以及在可用时的字幕或 ASR 转写文本。
+        </p>
+      </article>
+
+      <article class="research-card">
+        <h3>训练流程</h3>
+        <p>
+          框架现已形成更清晰的"准备—训练—预测"结构，包含数据划分控制、模型制品保存、阈值选择与可选校准步骤。
+        </p>
+      </article>
+
+      <article class="research-card">
+        <h3>当前最优结果</h3>
+        <p>
+          在完整评测套件中，当前审核表现最佳的配置为线性文本加上下文模型，宏平均 F1 为 0.776，有害内容召回率为 0.792，AUPRC 为 0.532。
+        </p>
+      </article>
+    </div>
+
+    <div class="center-actions">
+      <a href="./research.html" class="btn btn-dark">打开方法与结果页面</a>
+      <a href="./proposal.html" class="btn btn-outline-dark">打开提案 PDF</a>
+    </div>
+  </section>
+
   <footer class="footer">
     <p>联系方式：sctalnproj0126@proton.me</p>
-    <p>© 2026 CDS553 课程项目 | 岭南大学（香港）</p>
+    <p>© 2026 CDS553 课程项目 | 岭南大学</p>
   </footer>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,33 +1,34 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>关于我们 | CDS553 网络欺凌检测项目</title>
 
   <link rel="stylesheet" href="../assets/css/style.css" />
-
-  <!-- 本页补充样式 -->
 </head>
 
 <body class="page-about">
 
-  <!-- ================= 导航栏 ================= -->
+  <!-- ================= Navbar ================= -->
   <header class="navbar">
     <div class="nav-left">
-      <a href="../" class="logo">CDS553课程项目：网络欺凌检测</a>
+      <a href="./index.html" class="logo">CDS553 课程项目：网络欺凌检测</a>
     </div>
 
     <nav class="nav-right">
-      <a href="../cn/index.html">项目主页</a>
-      <a href="../cn/about.html" class="active">关于我们</a>
-      <a href="../cn/meetings.html">会议记录</a>
-      <a href="../cn/resources.html">项目资源</a>
+      <a href="index.html">项目主页</a>
+      <a href="research.html">方法与结果</a>
+      <a href="app.html">应用原型</a>
+      <a href="about.html" class="active">关于我们</a>
+      <a href="meetings.html">会议记录</a>
+      <a href="resources.html">参考资料</a>
 
-      <!-- 语言切换 -->
       <div class="lang-menu">
-        <button class="lang-btn">语言 ▾</button>
-        <div class="lang-dropdown">
+        <button class="lang-btn" aria-haspopup="true" aria-expanded="false">
+          语言 ▾
+        </button>
+        <div class="lang-dropdown" role="menu">
           <a href="../about.html">English</a>
           <a href="./about.html">中文</a>
         </div>
@@ -38,40 +39,29 @@
   <section class="page-header">
     <div class="container">
       <h1>关于我们</h1>
-      <p class="subtitle">了解本学术项目的背景、团队成员以及研究动机。</p>
+      <p class="subtitle">了解项目背景、团队成员与研究动机。</p>
     </div>
   </section>
 
-
-  <!-- ================= 页面标题 ================= -->
-  <!-- ================= 主体内容 ================= -->
+  <!-- ================= Main Content ================= -->
   <main class="container">
 
     <!-- 项目背景 -->
     <section class="section">
       <h2>项目背景</h2>
       <p>
-        本项目聚焦智慧城市语境下社交网络中的网络欺凌识别与检测问题。随着线上交流在城市公共空间、
-        社区平台与服务反馈渠道中的普及，攻击性言论与网络欺凌可能以更快速度扩散并放大其社会影响。
-        尽管文本分类模型已取得较好效果，但在城市尺度部署中仍常受到跨平台领域差异（domain shift）、
-        类别不平衡与少数类型识别不足等因素影响，导致模型在真实环境中的稳定性与可解释性不足。
-        
-        为贴近智能城市治理场景，本项目提出一套可复现（reproducible）且多模态（multi-modal）的检测流程：
-        以文本语义表征为核心，并融合结构化上下文信号（如时间特征、互动统计、线程结构指标等）；
-        在数据可用时进一步引入跨平台链接上下文模态（例如 Tweet–Vine 映射标识符），以轻量方式刻画内容的传播与关联模式。
-        我们将基于统一评测协议系统对比经典机器学习与 Transformer 基线，并通过消融实验量化“链接上下文”带来的增益，
-        重点关注宏平均指标与少数类召回表现。     
+        本项目聚焦于智慧城市场景下社交网络中的网络欺凌识别与检测。随着网络交流在城市公共空间、社区平台及服务反馈渠道中日益普及，攻击性语言与网络欺凌的传播速度加快，社会影响也随之放大。尽管文本分类模型已取得较好效果，但城市级部署往往受跨平台领域偏移、类别不平衡以及少数欺凌类型识别性能薄弱等问题困扰，导致真实场景下的稳定性与可解释性有所下降。为更好地契合智慧城市治理场景，我们提出一套可复现的多模态检测流程：以文本语义表示为核心，融合结构化上下文信号（如时间特征、交互统计与帖子结构指标）；在数据可用时，进一步引入跨平台链接上下文模态（如 Tweet–Vine 映射标识符），以轻量方式捕捉传播路径与关联模式。在统一评估协议下，我们将系统比较经典机器学习方法与 Transformer 基线，并通过消融实验量化"链接上下文"带来的增益，重点关注宏平均指标与少数类召回率。
       </p>
       <p>
-        因此，我们希望通过数据驱动的方法，对网络文本中的潜在欺凌信号进行建模与分析，为后续研究与系统设计提供参考。
+        通过数据驱动的方法，我们旨在对网络文本中潜在的欺凌信号进行建模与分析，为后续研究与系统设计提供参考。
       </p>
     </section>
 
-    <!-- 项目团队（新设计：卡片布局 + 签名/花押图片） -->
+    <!-- 项目团队 -->
     <section class="section">
       <h2>项目团队</h2>
       <p>
-        本项目由 MScSCTA 学生研究小组共同完成。仅用于学术交流与课程研究目的。
+        本项目由信息及智慧城市技术理学硕士（MScSCTA）学生研究小组共同完成，仅供学术交流与课程研究使用。
       </p>
 
       <div class="team-grid">
@@ -82,14 +72,13 @@
             <img src="../assets/images/team/sign-01.png" alt="成员 1（占位图）" />
           </div>
           <div class="member-info">
-            <h3 class="member-name">Mr. ZHU J., MScSCTA</h3>
-            <p class="member-meta">职责：数据预处理 · 特征工程 · 经典基线</p>
+            <h3 class="member-name">朱同学，MScSCTA</h3>
+            <p class="member-meta">职责：数据预处理 · 特征工程 · 经典基线模型</p>
             <p class="member-desc">
-              负责构建可复现的数据处理流程（去重、规范化、划分与标签映射），并实现 TF-IDF + 线性分类器等经典基线，
-              为多模态融合与误差分析提供稳定对照。
+              负责构建可复现的数据处理工作流（去重、规范化、数据划分与标签映射），并实现 TF-IDF 加线性分类器等经典基线模型，为多模态融合与误差分析提供稳定的参照基准。
             </p>
             <ul class="member-tags">
-              <li>Preprocessing</li><li>Baseline</li><li>Error Analysis</li>
+              <li>预处理</li><li>基线模型</li><li>误差分析</li>
             </ul>
           </div>
         </article>
@@ -100,13 +89,13 @@
             <img src="../assets/images/team/sign-02.png" alt="成员 2（占位图）" />
           </div>
           <div class="member-info">
-            <h3 class="member-name">Mr. TIAN Z., MScSCTA</h3>
+            <h3 class="member-name">田同学，MScSCTA</h3>
             <p class="member-meta">职责：Transformer 微调 · 超参数优化 · 对比实验</p>
             <p class="member-desc">
-              负责 BERT/RoBERTa 等预训练模型的微调与训练管理，在统一协议下与经典基线进行对比，并配合后续融合模型进行性能评估与复现实验记录。
+              负责 BERT/RoBERTa 等预训练模型的微调与训练管理，在统一协议下与经典基线进行对比，并为后续融合模型的评估与可复现日志提供支持。
             </p>
             <ul class="member-tags">
-              <li>Training</li><li>Tuning</li><li>Transformers</li>
+              <li>模型训练</li><li>参数调优</li><li>Transformers</li>
             </ul>
           </div>
         </article>
@@ -117,14 +106,13 @@
             <img src="../assets/images/team/sign-03.png" alt="成员 3（占位图）" />
           </div>
           <div class="member-info">
-            <h3 class="member-name">Mr. GUO Z., MScSCTA</h3>
+            <h3 class="member-name">郭同学，MScSCTA</h3>
             <p class="member-meta">职责：链接上下文特征 · 结构化信号构建 · 模态融合</p>
             <p class="member-desc">
-              负责从存档/索引数据中提取跨平台链接标识符（如 Tweet–Vine 映射），构建轻量链接上下文特征（频次、时间扩散、交互密度代理等），
-              并设计上下文编码与融合输入形式以量化“模态增益”。同时负责项目网站的信息架构与页面实现（中英双语、资源索引、内容更新），
-              确保线上展示与实验进展保持一致、便于学术交流。
+              负责从存档/索引文件中提取跨平台链接标识符（如 Tweet–Vine 映射），构建轻量级链接上下文特征（频率、时间跨度、交互密度代理指标等），并设计上下文编码与融合输入以量化"模态增益"。同时负责项目网站的信息架构与页面实现（双语页面、资源索引与内容更新），确保线上展示与实验进度保持一致，支持学术交流。
+            </p>
             <ul class="member-tags">
-              <li>Link Context</li><li>Fusion</li><li>Web</li>
+              <li>链接上下文</li><li>模态融合</li><li>网站开发</li>
             </ul>
           </div>
         </article>
@@ -135,14 +123,13 @@
             <img src="../assets/images/team/sign-04.png" alt="成员 4（占位图）" />
           </div>
           <div class="member-info">
-            <h3 class="member-name">Mr. WANG Q., MScSCTA</h3>
+            <h3 class="member-name">汪同学，MScSCTA</h3>
             <p class="member-meta">职责：评估指标 · 不平衡分析 · 鲁棒性实验</p>
             <p class="member-desc">
-              负责构建不平衡友好的评估与报告方式（macro 指标、少数类召回等），并组织鲁棒性相关实验（领域迁移/噪声扰动等）与误差分析，
-              输出可解释结论与改进方向。
+              负责设计面向类别不平衡的评估与报告体系（宏平均指标、少数类召回率等），组织鲁棒性实验（领域偏移/噪声扰动）与误差分析，并输出可解释的结论与改进方向。
             </p>
             <ul class="member-tags">
-              <li>Evaluation</li><li>Robustness</li><li>Interpretation</li>
+              <li>模型评估</li><li>鲁棒性</li><li>结果解释</li>
             </ul>
           </div>
         </article>
@@ -153,13 +140,13 @@
             <img src="../assets/images/team/sign-05.png" alt="成员 5（占位图）" />
           </div>
           <div class="member-info">
-            <h3 class="member-name">Mr. WEN Y., MScSCTA</h3>
-            <p class="member-meta">职责：复现脚本 · 运行说明 · 版本管理</p>
+            <h3 class="member-name">文同学，MScSCTA</h3>
+            <p class="member-meta">职责：可复现脚本 · 运行说明 · 版本管理</p>
             <p class="member-desc">
-              负责整理复现实验所需脚本与运行说明，维护版本与文件结构一致性，并协助协调组内任务分工与交付节奏，保证材料可追溯与可复现。
+              负责整理可复现实验的脚本与运行说明，维护版本一致性与文件结构规范，协助团队协调与交付节奏，确保实验制品可追溯、可复现。
             </p>
             <ul class="member-tags">
-              <li>Reproducibility</li><li>Versioning</li><li>Coordination</li>
+              <li>可复现性</li><li>版本管理</li><li>团队协调</li>
             </ul>
           </div>
         </article>
@@ -171,41 +158,21 @@
     <section class="section">
       <h2>研究动机</h2>
       <p>
-        本项目的动机在于缩小“课程/基准任务”与“智能城市真实部署约束”之间的差距。
-        我们不仅关注文本模型的整体准确性，更关注在类别不平衡与跨域变化下，
-        模型对少数类型网络欺凌的稳定识别能力，以及在城市尺度运行时对资源与可复现性的要求。
+        本项目的动机在于缩小"课程/基准任务"与真实智慧城市部署约束之间的差距。我们不仅关注整体准确率，更注重在类别不平衡与跨域偏移条件下对少数欺凌类型的稳定识别能力，以及城市级部署中的资源约束与可复现性需求。
       </p>
       <p>
-        因此，我们将“多模态”实现明确为可操作的文本语义 + 结构化上下文 + 链接上下文信号，
-        并通过消融实验（text-only vs. text + link context）量化结构化社交信号的贡献，
-        重点报告宏平均指标与少数类召回，形成更贴近实际治理与学术复现实践的研究结论。
+        因此，我们以可操作的方式定义"多模态"：文本语义 + 结构化上下文 + 链接上下文信号。通过消融实验（仅文本 vs. 文本加链接上下文）量化结构化社交信号的贡献，并着重关注宏平均指标与少数类召回率，以得出更符合实际治理需求与学术可复现实践的结论。
       </p>
     </section>
 
   </main>
 
-  <!-- ================= 页脚 ================= -->
+  <!-- ================= Footer ================= -->
   <footer class="footer">
     <p>
-      © 2026 CDS553课程项目 · 仅用于学术与课程研究目的
+      © 2026 CDS553 课程项目 · 仅供学术交流与课程研究使用
     </p>
   </footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

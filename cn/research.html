@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>方法与结果 | CDS553 网络欺凌检测项目</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body class="page-research">
+
+  <header class="navbar">
+    <div class="nav-left">
+      <span class="logo">CDS553 课程项目：网络欺凌检测</span>
+    </div>
+    <nav class="nav-right">
+      <a href="index.html">项目主页</a>
+      <a href="research.html" class="active">方法与结果</a>
+      <a href="app.html">应用原型</a>
+      <a href="about.html">关于我们</a>
+      <a href="meetings.html">会议记录</a>
+      <a href="resources.html">参考资料</a>
+
+      <div class="lang-menu">
+        <button class="lang-btn" aria-haspopup="true" aria-expanded="false">
+          语言 ▾
+        </button>
+        <div class="lang-dropdown" role="menu">
+          <a href="../research.html">English</a>
+          <a href="./research.html">中文</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="page-header research-header">
+    <div class="container">
+      <h1>方法与结果</h1>
+      <p class="subtitle">
+        当前 CitySafe 流程、评估设置及经审核运行所得主要发现的简明技术概览。
+      </p>
+    </div>
+  </section>
+
+  <section class="section research-intro">
+    <div class="two-col">
+      <div>
+        <h2>技术概述</h2>
+        <p>
+          CitySafe 围绕一套实用的对比阶梯构建：从文本基线出发，逐步引入结构化上下文，再在规模较小的链接子集上研究关联媒体。当前框架支持文本记录、上下文特征、关联短视频特征，以及在可用时的字幕或 ASR 转写文本。
+        </p>
+        <p>
+          现阶段，最明显的提升来自完整套件上的上下文感知建模。关联媒体是研究的组成部分，但由于链接子集规模较小，相关发现仍处于较早期、较试探性的阶段，尚不如完整套件的结论稳健。
+        </p>
+      </div>
+
+      <div class="info-panel at-a-glance">
+        <div>
+          <h3>快速一览</h3>
+          <ul class="clean-list">
+            <li>当前原型阶段：TRL 4</li>
+            <li>完整套件最优配置：线性文本 + 上下文</li>
+            <li>活跃视频分支：稀疏关键帧 + ResNet-50 + Bi-GRU</li>
+            <li>预留文本通道：768 维接口，待接入语义编码器</li>
+          </ul>
+        </div>
+        <div>
+          <a href="./proposal.html" class="btn btn-dark">打开提案 PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt research-results">
+    <div class="section-head">
+      <h2>当前最优结果</h2>
+      <p>
+        在完整套件上，当前审核中整体表现最佳的配置为线性文本加上下文模型。
+      </p>
+    </div>
+
+    <div class="metric-strip">
+      <article class="metric-box">
+        <div class="label">选定模型</div>
+        <div class="value">lr_text_context</div>
+        <div class="sub">线性文本 + 上下文</div>
+      </article>
+      <article class="metric-box">
+        <div class="label">宏平均 F1</div>
+        <div class="value">0.776</div>
+        <div class="sub">完整套件整体最优均衡</div>
+      </article>
+      <article class="metric-box">
+        <div class="label">有害内容召回率</div>
+        <div class="value">0.792</div>
+        <div class="sub">为审核支持保持较高召回率</div>
+      </article>
+      <article class="metric-box">
+        <div class="label">AUPRC</div>
+        <div class="value">0.532</div>
+        <div class="sub">优于纯文本线性基线</div>
+      </article>
+    </div>
+
+    <div class="results-table-wrap">
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>模型</th>
+            <th>准确率</th>
+            <th>宏平均 F1</th>
+            <th>有害内容召回率</th>
+            <th>AUPRC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>逻辑回归（lr_text）</td>
+            <td>0.944</td>
+            <td>0.559</td>
+            <td>0.919</td>
+            <td>0.123</td>
+          </tr>
+          <tr>
+            <td>神经网络文本头（mlp_text）</td>
+            <td>0.991</td>
+            <td>0.660</td>
+            <td>0.413</td>
+            <td>0.275</td>
+          </tr>
+          <tr>
+            <td>神经网络文本 + 上下文（mlp_text_context）</td>
+            <td>0.993</td>
+            <td>0.754</td>
+            <td>0.708</td>
+            <td>0.538</td>
+          </tr>
+          <tr>
+            <td>线性文本 + 上下文（lr_text_context）</td>
+            <td>0.993</td>
+            <td>0.776</td>
+            <td>0.792</td>
+            <td>0.532</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="results-note">
+      简而言之，在当前审核中，上下文特征贡献了最为可靠的提升。关联媒体分支仍值得深入研究，但由于该子集规模较小，相关结论需更为审慎地解读。
+    </p>
+  </section>
+
+  <section class="section research-block">
+    <div class="section-head">
+      <h2>系统概览</h2>
+      <p>
+        系统采用模块化流程结构，数据准备、模型训练与预测推理均可在同一套可复现配置下重新运行。
+      </p>
+    </div>
+
+    <div class="research-grid">
+      <article class="research-feature">
+        <h3>输入</h3>
+        <p>
+          框架支持文本、标签、平台、时间戳、群组或会话标识符、视频路径，以及在可用时的字幕或 ASR 转写文本。
+        </p>
+      </article>
+
+      <article class="research-feature">
+        <h3>上下文分支</h3>
+        <p>
+          回复活跃度、提及次数、平台信息与粗粒度时间分段等结构化特征，使模型能够获取超出局部文本本身的额外信息。
+        </p>
+      </article>
+
+      <article class="research-feature">
+        <h3>关联媒体分支</h3>
+        <p>
+          在链接子集上，文本、上下文与短视频特征可通过门控多模态融合头进行融合，并考虑了模态缺失的处理机制。
+        </p>
+      </article>
+
+      <article class="research-feature">
+        <h3>输出</h3>
+        <p>
+          系统输出风险评分、选定阈值、置信度导向摘要、CSV 导出文件，以及便于后续审核对接的可视化分析图表。
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section-alt research-block">
+    <div class="section-head">
+      <h2>训练与评估流程</h2>
+      <p>
+        我们的流程对跨模型族的数据划分、制品保存与评估逻辑实施严格统一的管控。
+      </p>
+    </div>
+
+    <div class="pipeline-grid">
+      <article class="pipeline-step">
+        <span class="step-no">1</span>
+        <h3>数据准备</h3>
+        <p>
+          数据写入清单式格式。在模型训练前完成清洗、标签映射、媒体链接，以及顾及组别一致性的训练/验证/测试集划分。
+        </p>
+      </article>
+
+      <article class="pipeline-step">
+        <span class="step-no">2</span>
+        <h3>模型训练</h3>
+        <p>
+          当前对比包含线性与神经网络文本基线、上下文感知变体，以及在规模较小的链接子集上进行的关联媒体实验。
+        </p>
+      </article>
+
+      <article class="pipeline-step">
+        <span class="step-no">3</span>
+        <h3>决策点选择</h3>
+        <p>
+          流程包含阈值选择与可选的温度校准步骤，因为概率质量本身至关重要，而非仅依赖固定 0.5 截断后的原始标签。
+        </p>
+      </article>
+
+      <article class="pipeline-step">
+        <span class="step-no">4</span>
+        <h3>预测与审核</h3>
+        <p>
+          同一框架支持批量预测、保存报告与可视化分析，将模型输出与网站其他部分展示的审核流程相衔接。
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section research-status">
+    <div class="two-col">
+      <div>
+        <h2>实施现状</h2>
+        <p>
+          当前发明披露将 CitySafe 记录为 TRL 4 阶段。活跃视频分支已采用稀疏关键帧采样、预训练 ResNet-50 骨干网络与 Bi-GRU 时序建模。批量推理、可视化分析与整体系统架构也已在当前原型阶段完成。
+        </p>
+        <p>
+          一项重要的待办事项是文本分支：预留的 768 维文本通道已就位，但尚待接入真正的语义编码器。这是下一轮计划中的主要升级方向之一。
+        </p>
+      </div>
+
+      <div class="info-panel">
+        <h3>后续计划</h3>
+        <ul class="clean-list">
+          <li>将预留文本通道接入语义编码器</li>
+          <li>通过焦点损失或过采样提升少数类召回率</li>
+          <li>清洗元数据以强化视频-文本链接质量</li>
+          <li>实现证据工具包、审计日志与 RBAC 模块</li>
+          <li>推进隐私保护与延迟优化工作，为后续部署讨论做准备</li>
+        </ul>
+        <a href="./app.html" class="btn btn-dark">查看应用原型</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>联系方式：sctalnproj0126@proton.me</p>
+    <p>© 2026 CDS553 课程项目 | 岭南大学</p>
+  </footer>
+
+</body>
+</html>
