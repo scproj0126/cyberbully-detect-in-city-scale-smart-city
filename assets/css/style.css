@@ -2001,10 +2001,19 @@ p, li{
 }
 
 .page-about .member-tags li,
-.page-meetings .badge,
-.hero-pills .pill{
+.page-meetings .badge{
   border-color: rgba(23,56,104,0.12);
   background: rgba(248,251,255,0.78);
+}
+
+.hero-pills .pill{
+  border-color: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.22);
+  color: #ffffff;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  font-weight: 500;
 }
 
 .page-meetings .week-card.current,
